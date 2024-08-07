@@ -12,25 +12,4 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
-
-    // Scroll to top button
-    const scrollToTopBtn = document.createElement("button");
-    scrollToTopBtn.textContent = "↑";
-    scrollToTopBtn.classList.add("scroll-to-top");
-    document.body.appendChild(scrollToTopBtn);
-
-    scrollToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add("show");
-        } else {
-            scrollToTopBtn.classList.remove("show");
-        }
-    });
 });
