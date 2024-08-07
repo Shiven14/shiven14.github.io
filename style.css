@@ -85,3 +85,21 @@ footer {
     position: sticky;
     bottom: 0;
 }
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    transition: opacity 0.3s;
+}
+
+.scroll-to-top.show {
+    display: block;
+}
