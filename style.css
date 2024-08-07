@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -16,15 +16,12 @@ header {
     z-index: 1000;
 }
 
-header h1 {
-    margin: 0;
-}
-
 header nav ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 header nav ul li {
@@ -42,39 +39,30 @@ header nav ul li a:hover {
     color: #ff9800;
 }
 
-main {
-    padding: 1rem;
-}
-
 section {
-    margin-bottom: 2rem;
+    padding: 2rem 0;
+    text-align: center;
 }
 
-section h2 {
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.5rem;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
+#about {
     background: #fff;
-    margin-bottom: 1rem;
+    padding: 3rem 0;
+}
+
+#projects, #resume, #contact {
+    background: #f4f4f4;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+.project {
+    background: #fff;
+    margin: 1rem;
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-ul li:hover {
-    transform: scale(1.05);
-}
-
-ul li h3 {
-    margin-top: 0;
 }
 
 footer {
@@ -82,24 +70,13 @@ footer {
     padding: 1rem 0;
     background: #333;
     color: #fff;
-    position: sticky;
-    bottom: 0;
-}
-.scroll-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    padding: 0.5rem 1rem;
-    background: #ff9800;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-    transition: opacity 0.3s;
 }
 
-.scroll-to-top.show {
-    display: block;
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff9800;
 }
