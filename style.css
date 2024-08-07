@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -49,15 +50,18 @@ section {
     padding: 20vh 0;
 }
 
+/* Page Sections */
 #about, #projects, #experience, #contact {
     background: #f4f4f4;
     padding: 4rem 0;
 }
 
+/* Headings */
 h1, h2, h3 {
     margin: 0;
 }
 
+/* Specific Sections */
 .project, .experience {
     background: #fff;
     margin: 1rem;
@@ -66,6 +70,7 @@ h1, h2, h3 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -73,6 +78,7 @@ footer {
     color: #fff;
 }
 
+/* Links */
 a {
     color: #333;
     text-decoration: none;
@@ -80,4 +86,58 @@ a {
 
 a:hover {
     color: #ff9800;
+}
+
+/* About Page Specific Styles */
+#about-page #about {
+    background: #e0f7fa;
+    padding: 3rem;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 2rem;
+}
+
+.profile-text {
+    max-width: 600px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Additional Styling for Sections */
+.background, .personal-touch, .testimonials {
+    margin: 2rem 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f4f4f4;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+blockquote {
+    background: #fff;
+    border-left: 4px solid #ff9800;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
 }
