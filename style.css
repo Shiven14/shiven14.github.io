@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background: #333;
+    background: #333; /* Dark background for header */
     color: #fff;
     padding: 1rem;
     position: sticky;
@@ -33,14 +33,17 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff;
+    color: #fff; /* White text for menu links */
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 0.5rem 1rem; /* Add padding for clickable area */
+    border-radius: 4px; /* Optional: rounded corners */
 }
 
 header nav ul li a:hover {
-    color: #ff9800;
+    color: #ff9800; /* Highlight color on hover */
+    background-color: transparent; /* Remove background color on hover */
 }
 
 section {
