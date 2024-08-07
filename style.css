@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background: #333; /* Dark background for header */
+    background: #333;
     color: #fff;
     padding: 1rem;
     position: sticky;
@@ -33,17 +33,62 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff; /* White text for menu links */
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s, background-color 0.3s;
-    padding: 0.5rem 1rem; /* Add padding for clickable area */
-    border-radius: 4px; /* Optional: rounded corners */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
 header nav ul li a:hover {
-    color: #ff9800; /* Highlight color on hover */
-    background-color: transparent; /* Remove background color on hover */
+    color: #ff9800;
+    background-color: transparent;
+}
+
+#landing {
+    background: url('background.jpg') no-repeat center center/cover; /* Change this to your desired background image */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 1rem;
+}
+
+.landing-content {
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: #ff9800;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background: #e68900;
 }
 
 section {
@@ -51,76 +96,39 @@ section {
     text-align: center;
 }
 
-#landing {
-    background: #fff;
-    padding: 20vh 0;
-}
-
 #about, #projects, #experience, #contact {
-    background: #f4f4f4;
-    padding: 4rem 0;
+    background: #fff;
+    padding: 4rem 2rem;
 }
 
-h1, h2, h3 {
-    margin: 0;
-}
-
-/* Profile Section Styles */
 .profile {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .profile-img {
     border-radius: 50%;
-    width: 150px; /* Adjust size as needed */
-    height: 150px; /* Adjust size as needed */
-    margin-right: 2rem;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
 }
 
 .profile-text {
-    max-width: 600px;
-    text-align: left;
+    text-align: center;
 }
 
-/* Project and Experience Styles */
 .project, .experience {
-    background: #fff;
+    background: #f4f4f4;
     margin: 1rem;
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Additional Section Styles */
-.background, .personal-touch, .testimonials {
-    margin: 2rem 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    background: #f4f4f4;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-    border-radius: 4px;
-}
-
-blockquote {
-    background: #fff;
-    border-left: 4px solid #ff9800;
-    padding: 1rem;
-    margin: 1rem 0;
-    font-style: italic;
-}
-
-/* Footer Styles */
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -128,7 +136,6 @@ footer {
     color: #fff;
 }
 
-/* Links */
 a {
     color: #333;
     text-decoration: none;
