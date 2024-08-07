@@ -50,50 +50,16 @@ section {
     padding: 20vh 0;
 }
 
-/* Page Sections */
 #about, #projects, #experience, #contact {
     background: #f4f4f4;
     padding: 4rem 0;
 }
 
-/* Headings */
 h1, h2, h3 {
     margin: 0;
 }
 
-/* Specific Sections */
-.project, .experience {
-    background: #fff;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: #fff;
-}
-
-/* Links */
-a {
-    color: #333;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #ff9800;
-}
-
-/* About Page Specific Styles */
-#about-page #about {
-    background: #e0f7fa;
-    padding: 3rem;
-}
-
+/* Profile Section Styles */
 .profile {
     display: flex;
     align-items: center;
@@ -103,21 +69,27 @@ a:hover {
 
 .profile-img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
     margin-right: 2rem;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
 .profile-text {
     max-width: 600px;
+    text-align: left;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
+/* Project and Experience Styles */
+.project, .experience {
+    background: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Additional Styling for Sections */
+/* Additional Section Styles */
 .background, .personal-touch, .testimonials {
     margin: 2rem 0;
 }
@@ -140,4 +112,22 @@ blockquote {
     padding: 1rem;
     margin: 1rem 0;
     font-style: italic;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+}
+
+/* Links */
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff9800;
 }
