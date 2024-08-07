@@ -44,20 +44,21 @@ section {
     text-align: center;
 }
 
-#about {
+#landing {
     background: #fff;
-    padding: 3rem 0;
+    padding: 20vh 0;
 }
 
-#projects, #resume, #contact {
+#about, #projects, #experience, #contact {
     background: #f4f4f4;
+    padding: 4rem 0;
 }
 
 h1, h2, h3 {
     margin: 0;
 }
 
-.project {
+.project, .experience {
     background: #fff;
     margin: 1rem;
     padding: 1rem;
