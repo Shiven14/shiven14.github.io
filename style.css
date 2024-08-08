@@ -1,3 +1,4 @@
+/* General styles */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -6,6 +7,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Header styles */
 header {
     background: #333;
     color: #fff;
@@ -32,13 +34,18 @@ header nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    padding: 0.5rem 1rem; /* Add padding to make buttons clickable */
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 header nav ul li a:hover {
-    color: #ff9800;
+    background-color: #ff9800; /* Highlight background on hover */
+    border-radius: 4px; /* Rounded corners for buttons */
+    color: #fff; /* Ensure text is readable */
 }
 
+/* Landing page styles */
 #landing {
     background: #fff;
     padding: 20vh 0;
@@ -54,6 +61,7 @@ header nav ul li a:hover {
     padding: 0;
 }
 
+/* Section styles */
 section {
     padding: 2rem 0;
     text-align: center;
@@ -68,14 +76,17 @@ h1, h2, h3 {
     margin: 0;
 }
 
+/* Project and experience boxes */
 .project, .experience {
     background: #fff;
-    margin: 1rem;
+    margin: 1rem auto; /* Center align the boxes */
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Center align and limit width */
 }
 
+/* Footer styles */
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -83,6 +94,7 @@ footer {
     color: #fff;
 }
 
+/* Link styles */
 a {
     color: #333;
     text-decoration: none;
@@ -92,11 +104,13 @@ a:hover {
     color: #ff9800;
 }
 
+/* Company logo styles */
 .company-logo {
     max-width: 150px; /* Adjust the width as needed */
     margin: 1rem 0;
 }
 
+/* Experience page list styles */
 #experience ul {
     list-style-type: none; /* Remove bullet points */
     padding: 0;
@@ -107,6 +121,7 @@ a:hover {
     padding: 0.5rem 0; /* Add spacing between items */
 }
 
+/* Responsive images */
 #about img, #projects img, #contact img {
     max-width: 100%; /* Ensure images are responsive */
     height: auto; /* Maintain aspect ratio */
@@ -117,19 +132,7 @@ a:hover {
     max-width: 800px; /* Limit width for readability */
 }
 
-header nav ul {
-    display: flex;
-    justify-content: flex-end; /* Menu options aligned to the right */
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1rem; /* Add padding to make buttons clickable */
-    display: block;
-}
-
-header nav ul li a:hover {
-    background-color: #ff9800; /* Highlight background on hover */
-    border-radius: 4px; /* Rounded corners for buttons */
+#landing img {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
 }
