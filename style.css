@@ -46,13 +46,12 @@ header nav ul li a:hover {
     background-image: url('background.jpg');
     background-size: cover; /* Cover the whole section with the image */
     background-position: center; /* Center the background image */
+    color: #fff; /* Ensure text is visible on the background image */
 }
 
-#landing img {
-    max-width: 100%; /* Ensure the image is responsive */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space below image */
-    margin: 0 auto; /* Center the image */
+#landing h1, #landing p {
+    margin: 0;
+    padding: 0;
 }
 
 section {
@@ -118,6 +117,19 @@ a:hover {
     max-width: 800px; /* Limit width for readability */
 }
 
-#landing h1, #landing p {
-    color: #fff; /* Ensure text is visible on the background image */
+header nav ul {
+    display: flex;
+    justify-content: flex-end; /* Menu options aligned to the right */
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Add padding to make buttons clickable */
+    display: block;
+}
+
+header nav ul li a:hover {
+    background-color: #ff9800; /* Highlight background on hover */
+    border-radius: 4px; /* Rounded corners for buttons */
 }
