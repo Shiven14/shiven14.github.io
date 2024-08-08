@@ -1,11 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Smooth scrolling for navigation links
     const links = document.querySelectorAll('header nav ul li a');
 
     links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
