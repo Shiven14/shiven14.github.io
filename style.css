@@ -50,7 +50,7 @@ header nav ul li a:hover {
     background: #fff;
     padding: 20vh 0;
     text-align: center; /* Center align text and content */
-    background-image: url('background.jpg');
+    background-image: url('images/background.jpg');
     background-size: cover; /* Cover the whole section with the image */
     background-position: center; /* Center the background image */
     color: #fff; /* Ensure text is visible on the background image */
