@@ -20,7 +20,7 @@ header nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Align menu to the right */
     margin: 0;
 }
 
@@ -39,14 +39,25 @@ header nav ul li a:hover {
     color: #ff9800;
 }
 
-section {
-    padding: 2rem 0;
-    text-align: center;
-}
-
 #landing {
     background: #fff;
     padding: 20vh 0;
+    text-align: center; /* Center align text and content */
+    background-image: url('background.jpg');
+    background-size: cover; /* Cover the whole section with the image */
+    background-position: center; /* Center the background image */
+}
+
+#landing img {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto; /* Center the image */
+}
+
+section {
+    padding: 2rem 0;
+    text-align: center;
 }
 
 #about, #projects, #experience, #contact {
@@ -66,11 +77,6 @@ h1, h2, h3 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.company-logo {
-    max-width: 150px;
-    margin: 1rem 0;
-}
-
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -87,48 +93,31 @@ a:hover {
     color: #ff9800;
 }
 
-#about img {
-    max-width: 200px;
-    border-radius: 50%;
+.company-logo {
+    max-width: 150px; /* Adjust the width as needed */
     margin: 1rem 0;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+#experience ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
 }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+#experience li {
+    padding: 0.5rem 0; /* Add spacing between items */
 }
 
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+#about img, #projects img, #contact img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.contact-form button {
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
+#about p, #projects p, #contact p {
+    margin: 0 auto; /* Center align paragraphs */
+    max-width: 800px; /* Limit width for readability */
 }
 
-.contact-form button:hover {
-    background: #ff9800;
+#landing h1, #landing p {
+    color: #fff; /* Ensure text is visible on the background image */
 }
