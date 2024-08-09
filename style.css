@@ -107,4 +107,55 @@ footer {
     text-align: center;
     padding: 1rem; /* Correct padding property */
 }
+.contact-info {
+    margin-bottom: 2rem;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    margin-bottom: 1rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+.contact-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.contact-form button:hover {
+    background-color: #ff9800;
+}
 
