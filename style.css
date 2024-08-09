@@ -54,7 +54,7 @@ section {
 #landing {
     background: url('background.jpg') no-repeat center center;
     background-size: cover; /* Ensure the background image covers the whole section */
-    color: #fff;
+    color: #000;
     padding: 20vh 0;
     position: relative; /* Ensure positioning context */
     height: 100vh; /* Make the section take the full height of the viewport */
