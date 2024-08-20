@@ -94,8 +94,6 @@ h1, h2, h3 {
     max-width: 150px; /* Ensure the image does not exceed this width */
     margin-bottom: 1rem; /* Add margin below the image */
     display: block; /* Ensure the image is displayed as a block element */
-    /* Optional: Add border or other styles for debugging */
-    /* border: 1px solid red; */ /* Temporary border to see the image bounds */
 }
 
 .profile-img {
@@ -103,10 +101,12 @@ h1, h2, h3 {
     border-radius: 50%; /* Make image circular */
 }
 
+/* Footer styles */
 footer {
     text-align: center;
     padding: 1rem; /* Correct padding property */
 }
+
 .contact-info {
     margin-bottom: 2rem;
 }
@@ -115,6 +115,7 @@ footer {
     margin: 0.5rem 0;
 }
 
+/* Contact form styles */
 .contact-form {
     background: #fff;
     padding: 2rem;
@@ -159,3 +160,80 @@ footer {
     background-color: #ff9800;
 }
 
+/* Responsive Design */
+
+/* For screens up to 768px */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    #landing {
+        padding: 15vh 0;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .project, .experience {
+        margin: 0.5rem;
+    }
+
+    .company-logo {
+        max-width: 100px;
+    }
+
+    .profile-img {
+        max-width: 150px;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+/* For screens up to 480px */
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul li {
+        margin: 0.25rem 0;
+    }
+
+    #landing {
+        padding: 10vh 0;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .project, .experience {
+        margin: 0.25rem;
+    }
+
+    .company-logo {
+        max-width: 80px;
+    }
+
+    .profile-img {
+        max-width: 120px;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+}
