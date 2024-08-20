@@ -22,8 +22,9 @@ header nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: flex-end; /* Align menu to the right */
+    justify-content: flex-end; /* Align menu to the right on larger screens */
     margin: 0;
+    flex-wrap: wrap; /* Allow the items to wrap on smaller screens */
 }
 
 header nav ul li {
@@ -165,12 +166,13 @@ footer {
 /* For screens up to 768px */
 @media (max-width: 768px) {
     header nav ul {
-        flex-direction: column;
-        align-items: center;
+        justify-content: center; /* Center align menu items on mobile */
+        flex-direction: row; /* Ensure items are in a row */
+        flex-wrap: nowrap; /* Prevent wrapping in this case */
     }
 
     header nav ul li {
-        margin: 0.5rem 0;
+        margin: 0 0.5rem; /* Reduce spacing between items */
     }
 
     #landing {
@@ -205,12 +207,13 @@ footer {
     }
 
     header nav ul {
-        flex-direction: column;
-        align-items: flex-start;
+        justify-content: center; /* Center align menu items */
+        flex-direction: row; /* Ensure items are in a row */
+        flex-wrap: nowrap; /* Prevent wrapping */
     }
 
     header nav ul li {
-        margin: 0.25rem 0;
+        margin: 0 0.25rem; /* Further reduce spacing between items */
     }
 
     #landing {
