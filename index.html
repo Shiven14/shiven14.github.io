@@ -8,6 +8,10 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar"></div>
+
     <header>
         <nav>
             <div class="logo">
@@ -36,70 +40,51 @@
         <h2>About Me</h2>
         <div class="profile">
             <img src="IMG_4210.JPG" alt="Shiven Patel" class="profile-img">
-            <div class="profile-text">
-                <p>I am a senior CS major with a passion for software development. I have experience as a web development intern, where I created websites and developed Java programs. I also worked on an EHR system for a surgical clinic. My goal is to secure a job in the software field.</p>
-            </div>
+            <p>I am a senior CS major with a passion for software development. I have experience as a web development intern, where I created websites and developed Java programs. I also worked on an EHR system for a surgical clinic. My goal is to secure a job in the software field.</p>
         </div>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
-
-        <div class="project">
-            <h3>Verbo Vista</h3>
-            <p>A vocabulary learning app with interactive quizzes and personalized learning paths.</p>
-            <ul>
-                <li>Interactive Quizzes</li>
-                <li>Personalized Learning</li>
-                <li>Progress Tracking</li>
-            </ul>
-            <a href="https://github.com/Shiven14/VerboVista" target="_blank">GitHub Repository</a>
-        </div>
-
-        <div class="project">
-            <h3>Real-Time Data Visualization Dashboard</h3>
-            <p>A full-stack web app with real-time data updates and interactive visualizations.</p>
-            <ul>
-                <li>Live Data Updates via WebSockets</li>
-                <li>Interactive Charts using D3.js</li>
-                <li>Secure Authentication & Deployment on AWS</li>
-            </ul>
-            <a href="https://github.com/Shiven14/Real-Time-Data-Visualization-Dashboard-" target="_blank">GitHub Repository</a>
+        <div class="projects-container">
+            <div class="project">
+                <h3>Verbo Vista</h3>
+                <p>A vocabulary learning app with interactive quizzes and personalized learning paths.</p>
+                <a href="https://github.com/Shiven14/VerboVista" target="_blank">GitHub Repository</a>
+            </div>
+            <div class="project">
+                <h3>Real-Time Data Visualization Dashboard</h3>
+                <p>A full-stack web app with real-time data updates and interactive visualizations.</p>
+                <a href="https://github.com/Shiven14/Real-Time-Data-Visualization-Dashboard-" target="_blank">GitHub Repository</a>
+            </div>
         </div>
     </section>
 
     <section id="experience">
         <h2>Professional Experience</h2>
-
-        <div class="experience">
-            <h3>Web Development Intern - Mainline Surgical Center</h3>
-            <p><strong>Summer 2024</strong></p>
-            <ul>
-                <li>Developed and maintained internal web applications.</li>
-                <li>Created a Java program for automated email communications.</li>
-                <li>Contributed to an Electronic Health Record (EHR) system.</li>
-            </ul>
-            <a href="https://mainlinesurgical.com/" target="_blank">Mainline Surgical Center</a> |
-            <a href="https://github.com/Shiven14/java-email-automation" target="_blank">GitHub Code</a>
+        <div class="experience-container">
+            <div class="experience">
+                <h3>Web Development Intern - Mainline Surgical Center</h3>
+                <p><strong>Summer 2024</strong></p>
+                <ul>
+                    <li>Developed and maintained internal web applications.</li>
+                    <li>Created a Java program for automated email communications.</li>
+                    <li>Contributed to an Electronic Health Record (EHR) system.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:shiven9019@gmail.com">shiven9019@gmail.com</a></p>
-        <p>Phone: <a href="tel:+15614278937">(561) 427-8937</a></p>
-
-        <form action="https://formspree.io/f/myzgdlll" method="POST">
+        <form action="https://formspree.io/f/myzgdlll" method="POST" class="contact-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
-
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
-
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-
-            <button type="submit" class="contact-submit">Send Message</button>
+            <button type="submit">Send Message</button>
         </form>
     </section>
 
@@ -108,5 +93,7 @@
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
+
