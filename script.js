@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop,
+                    top: targetElement.offsetTop - 50, // Offset for sticky header
                     behavior: 'smooth'
                 });
             }
@@ -34,4 +34,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
