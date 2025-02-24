@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
+    <!-- Background Cube Animation -->
+    <div class="background-cubes"></div>
     
     <!-- Preloader -->
     <div id="preloader">
@@ -18,10 +20,12 @@
     <!-- Large Styled S. Logo -->
     <div class="logo-large">S.</div>
     
-    <!-- Sidebar Navigation -->
+    <!-- Sidebar Navigation Toggle -->
     <div class="menu-toggle" onclick="toggleMenu()">
         <i class="fas fa-bars"></i>
     </div>
+    
+    <!-- Sidebar Navigation -->
     <nav id="sidebar-menu">
         <ul>
             <li><a href="education.html">Education</a></li>
@@ -37,7 +41,6 @@
         <div class="hero-content">
             <h1>Welcome to Shiven Patel's Portfolio</h1>
             <p>"Innovation distinguishes between a leader and a follower." - Steve Jobs</p>
-            <a href="projects.html" class="cta-button">View Works</a>
             <div class="website-motion">shivenhpatel.com</div>
         </div>
     </section>
@@ -50,7 +53,7 @@
             document.getElementById("sidebar-menu").classList.toggle("active");
         }
 
-        // Cursor Shadow Effect Across All Pages
+        // Cursor Shadow Effect
         document.addEventListener("DOMContentLoaded", function() {
             const cursorShadow = document.createElement('div');
             cursorShadow.classList.add('cursor-shadow');
