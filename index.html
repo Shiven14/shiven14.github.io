@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiven Patel Portfolio</title>
+    <title>Shiven Patel | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -15,96 +15,48 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Header Navigation -->
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#home">S.</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Professional Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Large Styled S. Logo -->
+    <div class="logo-large">S.</div>
+    
+    <!-- Sidebar Navigation -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <nav id="sidebar-menu">
+        <ul>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Professional Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
     <!-- Hero Section -->
     <section id="home">
         <div class="hero-content">
             <h1>Welcome to Shiven Patel's Portfolio</h1>
             <p>"Innovation distinguishes between a leader and a follower." - Steve Jobs</p>
-            <a href="#projects" class="cta-button">View Works</a>
+            <a href="projects.html" class="cta-button">View Works</a>
             <div class="website-motion">shivenhpatel.com</div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education">
-        <h2>Education</h2>
-        <p><strong>Temple University - College of Science and Technology</strong></p>
-        <p>Bachelor of Science in Computer Science with Minor in Mathematics</p>
-        <p>CGPA: 3.38 / 4.00 | Expected Graduation: May 2026</p>
-    </section>
+    <!-- Cursor Shadow Effect -->
+    <div class="cursor-shadow"></div>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar-menu").classList.toggle("active");
+        }
 
-    <!-- Professional Experience Section -->
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        <div class="experience-container">
-            <div class="experience">
-                <h3>Web Development Intern - Mainline Surgical Center</h3>
-                <p><strong>May 2024 - Sep 2024</strong></p>
-                <ul>
-                    <li>Designed and implemented responsive websites using HTML5, CSS3, and JavaScript.</li>
-                    <li>Automated email workflows using Java, reducing manual processing time by 50%.</li>
-                    <li>Contributed to an EHR system for a surgical clinic using Java and MySQL.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="project">
-                <h3>Cyber Security Simulation Platform</h3>
-                <p>Developed a cybersecurity simulation platform using Python and Flask to help users practice real-world threat scenarios.</p>
-            </div>
-            <div class="project">
-                <h3>Real-Time Data Visualization Dashboard</h3>
-                <p>Built a full-stack web app with React, D3.js, Node.js, and MongoDB for real-time data updates.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <p>Programming Languages: C, Swift, SwiftUI, Java, Python, JavaScript, CSS, HTML</p>
-        <p>Frameworks & Libraries: Node.js, React, Express.js</p>
-        <p>Tools & Technologies: Docker, RESTful APIs, SQL, Git, JUnit, JavaMail API</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/myzgdlll" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Shiven Patel. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+        // Cursor Shadow Effect
+        const cursorShadow = document.querySelector(".cursor-shadow");
+        document.addEventListener("mousemove", (e) => {
+            cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            cursorShadow.style.transition = 'transform 0.1s ease-out';
+        });
+    </script>
 </body>
 </html>
 
