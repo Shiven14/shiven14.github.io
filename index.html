@@ -80,12 +80,32 @@
         // Preloader Animation
         document.addEventListener("DOMContentLoaded", function () {
             const preloader = document.getElementById("preloader");
-            setTimeout(() => {
-                preloader.style.opacity = "0";
+            const preloaderTexts = document.querySelectorAll(".preloader-text");
+            const fadeOutText = document.querySelector(".fade-out");
+            let delay = 500;
+
+            preloaderTexts.forEach((text, index) => {
                 setTimeout(() => {
-                    preloader.style.display = "none";
-                }, 500);
-            }, 4000); // Preloader duration
+                    text.style.opacity = "1";
+                    setTimeout(() => {
+                        text.style.opacity = "0";
+                    }, 1000); // Each word stays for 1.5s
+                }, delay);
+                delay += 1500;
+            });
+
+            setTimeout(() => {
+                fadeOutText.style.opacity = "1";
+                setTimeout(() => {
+                    fadeOutText.style.opacity = "0";
+                    setTimeout(() => {
+                        preloader.style.opacity = "0";
+                        setTimeout(() => {
+                            preloader.style.display = "none";
+                        }, 500);
+                    }, 1500);
+                }, 1500);
+            }, delay);
         });
     </script>
 </body>
