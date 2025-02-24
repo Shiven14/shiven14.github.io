@@ -44,15 +44,15 @@ body {
 
 /* Background Cube Animation */
 .cube-container {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotateX(30deg) rotateY(30deg);
-    width: 200px;
-    height: 200px;
-    perspective: 600px;
-    opacity: 0.5;
-    z-index: -1;
+    width: 250px;
+    height: 250px;
+    perspective: 800px;
+    opacity: 0.3;
+    animation: cubeSpin 10s infinte linear;
 }
 
 .cube {
@@ -60,64 +60,45 @@ body {
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    animation: cubeSpin 10s infinite linear;
+    
 }
 
 .face {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border: 2px solid white;
     background: rgba(255, 255, 255, 0.1);
 }
 
-.front  { transform: translateZ(100px); }
-.back   { transform: rotateY(180deg) translateZ(100px); }
-.left   { transform: rotateY(-90deg) translateZ(100px); }
-.right  { transform: rotateY(90deg) translateZ(100px); }
-.top    { transform: rotateX(90deg) translateZ(100px); }
-.bottom { transform: rotateX(-90deg) translateZ(100px); }
+.front  { transform: translateZ(125px); }
+.back   { transform: rotateY(180deg) translateZ(125px); }
+.left   { transform: rotateY(-90deg) translateZ(125px); }
+.right  { transform: rotateY(90deg) translateZ(125px); }
+.top    { transform: rotateX(90deg) translateZ(125px); }
+.bottom { transform: rotateX(-90deg) translateZ(125px); }
 
 @keyframes cubeSpin {
     from { transform: rotateX(0deg) rotateY(0deg); }
     to { transform: rotateX(360deg) rotateY(360deg); }
 }
+/* Large Logo */
+.logo-large {
+    font-size: 4rem;
+    font-weight: bold;
+    position: fixed;
+    top: 20px;
+    left: 40px;
+}
 
 /* Sidebar Navigation */
-#sidebar-menu {
+.menu-toggle {
     position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    padding-top: 60px;
-    transition: right 0.3s ease;
-    z-index: 1000;
-}
-
-#sidebar-menu.active {
-    right: 0;
-}
-
-#sidebar-menu ul {
-    list-style: none;
-    padding: 0;
-}
-
-#sidebar-menu ul li {
-    padding: 15px;
-    text-align: center;
-}
-
-#sidebar-menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-#sidebar-menu ul li a:hover {
-    color: #ff9800;
+    top: 20px;
+    right: 40px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
 }
 
 /* Hero Section */
@@ -127,19 +108,19 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    opacity: 1 !important;
+    text-align: center;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 600;
+    font-size: 4rem;
+    font-weight: 700;
     margin-bottom: 20px;
     letter-spacing: 1px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: 1.4rem;
+    max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
     font-weight: 300;
@@ -148,47 +129,33 @@ body {
 /* Button Styles */
 .btn-primary {
     background: #ff9800;
-    padding: 12px 30px;
+    padding: 14px 35px;
     border-radius: 50px;
     text-decoration: none;
     color: #000;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background: #fff;
-    color: #000;
 }
 
 /* Scroll Down Button */
 .scroll-down {
     position: absolute;
-    bottom: 40px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
 .scroll-circle {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background: #ff9800;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-
-.scroll-circle:hover {
-    background: #fff;
-    color: #000;
-}
-
-
-
