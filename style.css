@@ -6,18 +6,19 @@ body {
     background-color: #000;
     color: #fff;
     scroll-behavior: smooth;
-    cursor: none;
 }
 
-/* Cursor Shadow Effect */
-.cursor-shadow {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.1s ease-out;
+/* Background Cube Animation */
+.background-cubes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('cube-animation.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.3;
 }
 
 /* Large Logo */
@@ -36,6 +37,7 @@ body {
     right: 40px;
     font-size: 1.5rem;
     cursor: pointer;
+    color: #fff;
 }
 
 #sidebar-menu {
@@ -69,51 +71,62 @@ body {
     font-size: 1.2rem;
 }
 
-/* Sections */
-section {
+/* Hero Section */
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     text-align: center;
-    padding: 100px 20px;
-    min-height: 100vh;
 }
 
-h1 {
+.hero-content h1 {
     font-size: 3rem;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-p {
+.hero-content p {
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
-/* Projects & Experience */
-.projects-container, .experience-container {
+/* Button Styles */
+.btn-primary {
+    background: #ff9800;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Scroll Down Button */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.scroll-circle {
+    width: 50px;
+    height: 50px;
+    background: #ff9800;
+    border-radius: 50%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.project, .experience {
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.project:hover, .experience:hover {
-    transform: scale(1.05);
-}
-
-/* Contact Form */
-.contact-form {
-    background: #222;
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: auto;
+    cursor: pointer;
 }
 
 
