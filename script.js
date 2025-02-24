@@ -1,28 +1,37 @@
-// Smooth Scrolling
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.nav-links a');
+/* JavaScript for Preloader */
+document.addEventListener("DOMContentLoaded", function() {
+    const preloader = document.getElementById("preloader");
+    setTimeout(() => {
+        preloader.style.display = "none";
+    }, 1500);
+});
 
-    links.forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
+/* Smooth Scrolling */
+document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
     });
 });
 
-// Scroll Progress Bar
-window.addEventListener("scroll", function() {
-    const progressBar = document.getElementById("progress-bar");
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPosition = window.scrollY;
-    const width = (scrollPosition / scrollHeight) * 100;
-    progressBar.style.width = width + "%";
+/* Scroll Reveal Animations */
+const sr = ScrollReveal({
+    origin: 'bottom',
+    distance: '50px',
+    duration: 1000,
+    delay: 300,
+    reset: true
 });
 
-// Shrinking Header
+sr.reveal('.hero-content', { interval: 200 });
+sr.reveal('.about-content', { interval: 200 });
+sr.reveal('.portfolio-item', { interval: 200 });
+sr.reveal('.service', { interval: 200 });
+sr.reveal('.contact-form', { interval: 200 });
+
+/* Header Shrink on Scroll */
 window.addEventListener("scroll", function() {
     const header = document.querySelector("header");
     if (window.scrollY > 50) {
@@ -31,4 +40,5 @@ window.addEventListener("scroll", function() {
         header.classList.remove("shrink");
     }
 });
+
 
