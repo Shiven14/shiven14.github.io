@@ -23,10 +23,12 @@ body {
     font-weight: 300;
     color: #fff;
     z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .preloader-text {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.5s ease;
 }
 
