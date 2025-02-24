@@ -41,4 +41,15 @@ window.addEventListener("scroll", function() {
     }
 });
 
+/* Cursor Shadow Effect */
+const cursorShadow = document.createElement('div');
+cursorShadow.classList.add('cursor-shadow');
+document.body.appendChild(cursorShadow);
+
+document.addEventListener("mousemove", (e) => {
+    cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    cursorShadow.style.transition = 'transform 0.1s ease-out';
+});
+
+
 
