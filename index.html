@@ -9,8 +9,8 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-    <!-- Background Cube Animation -->
-    <div class="background-cubes"></div>
+    <!-- Background Cube Animation (White) -->
+    <div class="background-cubes white"></div>
     
     <!-- Preloader -->
     <div id="preloader">
@@ -45,17 +45,6 @@
             <div class="website-motion">shivenhpatel.com</div>
         </div>
     </section>
-
-    <!-- Scroll Down Button -->
-    <div class="scroll-down">
-        <span>SCROLL DOWN</span>
-        <div class="scroll-circle">
-            <i class="fas fa-arrow-down"></i>
-        </div>
-    </div>
-
-    <!-- Cursor Shadow Effect -->
-    <div class="cursor-shadow"></div>
     
     <script>
         function toggleMenu() {
@@ -67,20 +56,9 @@
             const menu = document.getElementById("sidebar-menu");
             menu.style.display = "block";
         });
-
-        // Cursor Shadow Effect - White Shadow
-        document.addEventListener("DOMContentLoaded", function() {
-            const cursorShadow = document.createElement('div');
-            cursorShadow.classList.add('cursor-shadow');
-            cursorShadow.style.backgroundColor = 'rgba(255, 255, 255, 0.7)'; // White shadow effect
-            document.body.appendChild(cursorShadow);
-
-            document.addEventListener("mousemove", (e) => {
-                cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                cursorShadow.style.transition = 'transform 0.1s ease-out';
-            });
-        });
     </script>
 </body>
 </html>
+
+
 
