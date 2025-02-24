@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Preloader
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-        setTimeout(() => {
-            preloader.style.display = "none";
-        }, 1500);
-    }
-
     // Sidebar Navigation Toggle
     const menuToggle = document.querySelector(".menu-toggle");
     const sidebarMenu = document.getElementById("sidebar-menu");
@@ -17,34 +9,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Cursor Shadow Effect
-    const cursorShadow = document.createElement("div");
-    cursorShadow.classList.add("cursor-shadow");
-    document.body.appendChild(cursorShadow);
-    
-    document.addEventListener("mousemove", (e) => {
-        cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        cursorShadow.style.transition = "transform 0.1s ease-out";
-    });
+    // Background Cube Animation Logic
+    const backgroundCubes = document.querySelector(".background-cubes");
+    if (backgroundCubes) {
+        let moveCubes = () => {
+            let x = Math.random() * 10 - 5;
+            let y = Math.random() * 10 - 5;
+            backgroundCubes.style.transform = `translate(${x}px, ${y}px)`;
+        };
+        setInterval(moveCubes, 1000);
+    }
 
     // Scroll Reveal Animations
     if (typeof ScrollReveal !== "undefined") {
-        const sr = ScrollReveal({
-            origin: "bottom",
-            distance: "50px",
-            duration: 1000,
-            delay: 300,
-            reset: true
-        });
-
-        sr.reveal(".hero-content", { interval: 200 });
-        sr.reveal(".about-content", { interval: 200 });
-        sr.reveal(".portfolio-item", { interval: 200 });
-        sr.reveal(".service", { interval: 200 });
-        sr.reveal(".contact-form", { interval: 200 });
+        ScrollReveal().reveal(".hero-content", { origin: "bottom", distance: "50px", duration: 1000, delay: 300, reset: true });
+        ScrollReveal().reveal(".btn-primary", { origin: "bottom", distance: "30px", duration: 800, delay: 500, reset: true });
+        ScrollReveal().reveal(".scroll-down", { origin: "bottom", distance: "30px", duration: 800, delay: 700, reset: true });
     }
 });
-
-
-
 
