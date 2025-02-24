@@ -1,58 +1,58 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Sidebar Navigation Toggle
-    const menuToggle = document.querySelector(".menu-toggle");
-    const sidebarMenu = document.getElementById("sidebar-menu");
-    
-    if (menuToggle && sidebarMenu) {
-        menuToggle.addEventListener("click", function() {
-            sidebarMenu.classList.toggle("active");
-        });
-    }
+// Sidebar Menu Toggle
+function toggleMenu() {
+    document.getElementById("sidebar-menu").classList.toggle("active");
+}
 
-    // Background Cube Animation Logic
-    const backgroundCubes = document.querySelector(".background-cubes");
-    if (backgroundCubes) {
-        let moveCubes = () => {
-            let x = Math.random() * 10 - 5;
-            let y = Math.random() * 10 - 5;
-            backgroundCubes.style.transform = `translate(${x}px, ${y}px)`;
-        };
-        setInterval(moveCubes, 1000);
-    }
-
-    // Scroll Reveal Animations
-    if (typeof ScrollReveal !== "undefined") {
-        ScrollReveal().reveal(".hero-content", { origin: "bottom", distance: "50px", duration: 1000, delay: 300, reset: true });
-        ScrollReveal().reveal(".btn-primary", { origin: "bottom", distance: "30px", duration: 800, delay: 500, reset: true });
-        ScrollReveal().reveal(".scroll-down", { origin: "bottom", distance: "30px", duration: 800, delay: 700, reset: true });
-    }
-
-    // Preloader Animation
+// Preloader Animation
+document.addEventListener("DOMContentLoaded", function () {
     const preloader = document.getElementById("preloader");
-    const words = ["Innovative", "Problem Solver", "Developer", "shivenhpatel.com"];
-    const preloaderText = document.createElement("div");
-    preloaderText.classList.add("preloader-text");
-    preloader.appendChild(preloaderText);
+    const preloaderTexts = document.querySelectorAll(".preloader-text");
+    const fadeOutText = document.querySelector(".fade-out");
+    let delay = 500;
 
-    let index = 0;
-    function showNextWord() {
-        if (index < words.length) {
-            preloaderText.textContent = words[index];
-            preloaderText.classList.toggle("bold", index === 1);
-            preloaderText.style.opacity = "1";
+    // Show each preloader word one by one
+    preloaderTexts.forEach((text, index) => {
+        setTimeout(() => {
+            text.style.opacity = "1";
             setTimeout(() => {
-                preloaderText.style.opacity = "0";
-                index++;
-                setTimeout(showNextWord, 500);
+                text.style.opacity = "0";
+            }, 1000); // Word stays for 1.5s
+        }, delay);
+        delay += 1500;
+    });
+
+    // Fade out the final text
+    setTimeout(() => {
+        fadeOutText.style.opacity = "1";
+        setTimeout(() => {
+            fadeOutText.style.opacity = "0";
+            setTimeout(() => {
+                preloader.style.opacity = "0";
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                }, 500);
             }, 1500);
-        } else {
-            preloader.style.opacity = "0";
-            setTimeout(() => {
-                preloader.style.display = "none";
-                document.getElementById("home").style.opacity = "1";
-            }, 500);
-        }
+        }, 1500);
+    }, delay);
+});
+
+// Cube Animation
+document.addEventListener("DOMContentLoaded", function () {
+    const cube = document.querySelector(".cube");
+    if (cube) {
+        cube.style.animation = "cubeSpin 10s infinite linear";
     }
-    showNextWord();
+});
+
+// Smooth Scroll for Sidebar Links
+document.querySelectorAll("#sidebar-menu a").forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetSection = document.querySelector(this.getAttribute("href"));
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+            document.getElementById("sidebar-menu").classList.remove("active"); // Close menu after clicking
+        }
+    });
 });
 
