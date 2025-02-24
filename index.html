@@ -10,13 +10,8 @@
 </head>
 <body>
     <!-- Background Cube Animation (White) -->
-    <div class="background-cubes white"></div>
+    <div class="background-cubes"></div>
     
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-
     <!-- Large Styled S. Logo -->
     <div class="logo-large">S.</div>
     
@@ -37,28 +32,34 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Ashley-Style) -->
     <section id="home">
         <div class="hero-content">
-            <h1>Welcome to Shiven Patel's Portfolio</h1>
-            <p>"Innovation distinguishes between a leader and a follower." - Steve Jobs</p>
-            <div class="website-motion">shivenhpatel.com</div>
+            <h1><strong>Crafting</strong> Innovative <strong>Software Solutions</strong> Today</h1>
+            <p>Welcome to my world of coding, creativity, and problem-solving. <br>
+               I'm Shiven Patel, a Computer Science student passionate about building impactful software solutions. <br>
+               Explore my projects, skills, and journey as I turn ideas into reality.
+            </p>
+            <div class="buttons">
+                <a href="about.html" class="btn btn-primary">About Me <span class="arrow">→</span></a>
+            </div>
         </div>
     </section>
+
+    <!-- Scroll Down Button -->
+    <div class="scroll-down">
+        <span>SCROLL DOWN</span>
+        <div class="scroll-circle">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+    </div>
     
     <script>
         function toggleMenu() {
             document.getElementById("sidebar-menu").classList.toggle("active");
         }
-
-        // Ensure Sidebar Menu Displays Correctly
-        document.addEventListener("DOMContentLoaded", function() {
-            const menu = document.getElementById("sidebar-menu");
-            menu.style.display = "block";
-        });
     </script>
 </body>
 </html>
-
 
 
