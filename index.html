@@ -48,8 +48,10 @@
 
     <!-- Scroll Down Button -->
     <div class="scroll-down">
-        <span>Scroll Down</span>
-        <div class="scroll-icon">⬇</div>
+        <span>SCROLL DOWN</span>
+        <div class="scroll-circle">
+            <i class="fas fa-arrow-down"></i>
+        </div>
     </div>
 
     <!-- Cursor Shadow Effect -->
@@ -60,11 +62,17 @@
             document.getElementById("sidebar-menu").classList.toggle("active");
         }
 
+        // Ensure Sidebar Menu Displays Correctly
+        document.addEventListener("DOMContentLoaded", function() {
+            const menu = document.getElementById("sidebar-menu");
+            menu.style.display = "block";
+        });
+
         // Cursor Shadow Effect - White Shadow
         document.addEventListener("DOMContentLoaded", function() {
             const cursorShadow = document.createElement('div');
             cursorShadow.classList.add('cursor-shadow');
-            cursorShadow.style.backgroundColor = 'rgba(255, 255, 255, 0.5)'; // White shadow effect
+            cursorShadow.style.backgroundColor = 'rgba(255, 255, 255, 0.7)'; // White shadow effect
             document.body.appendChild(cursorShadow);
 
             document.addEventListener("mousemove", (e) => {
