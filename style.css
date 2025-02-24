@@ -20,113 +20,100 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-/* Preloader */
-#preloader {
+/* Large Logo */
+.logo-large {
+    font-size: 4rem;
+    font-weight: bold;
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-.loader {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #fff;
-    border-top: 5px solid #ff9800;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    top: 20px;
+    left: 40px;
 }
 
-/* Header Navigation */
-header {
+/* Sidebar Navigation */
+.menu-toggle {
     position: fixed;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
-    z-index: 1000;
-    transition: 0.3s;
+    top: 20px;
+    right: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
-.nav-links {
+
+#sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    padding-top: 60px;
+    transition: right 0.3s ease;
+}
+
+#sidebar-menu.active {
+    right: 0;
+}
+
+#sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar-menu ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+#sidebar-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Sections */
+section {
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Projects & Experience */
+.projects-container, .experience-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    list-style: none;
-}
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.nav-links a:hover {
-    color: #ff9800;
+    flex-wrap: wrap;
 }
 
-/* Hero Section */
-#home {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: url('images/hero-bg.jpg') no-repeat center center/cover;
-}
-.website-motion {
-    background-color: #ff9800;
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-top: 20px;
-    display: inline-block;
-    font-weight: bold;
+.project, .experience {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
-/* Smooth Scrolling */
-document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+.project:hover, .experience:hover {
+    transform: scale(1.05);
+}
 
-/* Scroll Reveal Animations */
-const sr = ScrollReveal({
-    origin: 'bottom',
-    distance: '50px',
-    duration: 1000,
-    delay: 300,
-    reset: true
-});
+/* Contact Form */
+.contact-form {
+    background: #222;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+}
 
-sr.reveal('.hero-content', { interval: 200 });
-sr.reveal('.about-content', { interval: 200 });
-sr.reveal('.portfolio-item', { interval: 200 });
-sr.reveal('.service', { interval: 200 });
-sr.reveal('.contact-form', { interval: 200 });
-
-/* Header Shrink on Scroll */
-window.addEventListener("scroll", function() {
-    const header = document.querySelector("header");
-    if (window.scrollY > 50) {
-        header.classList.add("shrink");
-    } else {
-        header.classList.remove("shrink");
-    }
-});
-
-/* Cursor Shadow Effect */
-const cursorShadow = document.createElement('div');
-cursorShadow.classList.add('cursor-shadow');
-document.body.appendChild(cursorShadow);
-
-document.addEventListener("mousemove", (e) => {
-    cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-});
 
