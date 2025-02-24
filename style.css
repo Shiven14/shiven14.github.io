@@ -6,6 +6,38 @@ body {
     background-color: #000;
     color: #fff;
     scroll-behavior: smooth;
+    text-align: center;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    z-index: 9999;
+}
+
+.preloader-text {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-text.bold {
+    font-weight: bold;
+}
+
+.fade-out {
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 /* Background Cube Animation */
@@ -18,12 +50,12 @@ body {
     background: url('cube-animation.png') no-repeat center center;
     background-size: cover;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 /* Large Logo */
 .logo-large {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
     position: fixed;
     top: 20px;
@@ -74,16 +106,20 @@ body {
 /* Hero Section */
 #home {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 3.5rem;
+    font-weight: 600;
     margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 .hero-content p {
@@ -91,17 +127,19 @@ body {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+    font-weight: 300;
 }
 
 /* Button Styles */
 .btn-primary {
     background: #ff9800;
-    padding: 15px 25px;
+    padding: 12px 30px;
     border-radius: 50px;
     text-decoration: none;
     color: #000;
     font-weight: bold;
-    transition: 0.3s ease;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -112,21 +150,29 @@ body {
 /* Scroll Down Button */
 .scroll-down {
     position: absolute;
-    bottom: 30px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .scroll-circle {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background: #ff9800;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scroll-circle:hover {
+    background: #fff;
+    color: #000;
 }
 
 
