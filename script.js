@@ -1,6 +1,8 @@
 // Sidebar Menu Toggle
 function toggleMenu() {
     document.getElementById("sidebar-menu").classList.toggle("active");
+    document.querySelector(".menu-toggle").addEventListener("click", toggleMenu);
+
 }
 
 // Close Menu Function
