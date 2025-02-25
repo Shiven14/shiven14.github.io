@@ -1,14 +1,23 @@
-// Sidebar Menu Toggle
-function toggleMenu() {
-    document.getElementById("sidebar-menu").classList.toggle("active");
-    document.querySelector(".menu-toggle").addEventListener("click", toggleMenu);
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const sidebarMenu = document.getElementById("sidebar-menu");
 
-}
+    // Sidebar Toggle Function
+    function toggleMenu() {
+        sidebarMenu.classList.toggle("active");
+    }
 
-// Close Menu Function
-function closeMenu() {
-    document.getElementById("sidebar-menu").classList.remove("active");
-}
+    // Attach click event only once
+    menuToggle.addEventListener("click", toggleMenu);
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!sidebarMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            sidebarMenu.classList.remove("active");
+        }
+    });
+});
+
 // Preloader Animation
 document.addEventListener("DOMContentLoaded", function () {
     const preloader = document.getElementById("preloader");
