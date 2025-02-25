@@ -63,20 +63,28 @@
         </div>
     </section>
 
-    <!-- Scroll Down Button -->
-    <div class="scroll-down">
-        <span>SCROLL DOWN</span>
-        <div class="scroll-circle">
-            <i class="fas fa-arrow-down"></i>
-        </div>
-    </div>
-    
+  <!-- Polygon Wireframe Container -->
+    <div class="polygon-container"></div>
+
     <script>
         // Sidebar Menu Toggle
         function toggleMenu() {
-            document.getElementById("sidebar-menu").classList.toggle("active");
+            document.getElementById("sidebar-menu").classList.add("active");
         }
 
+        function closeMenu() {
+            document.getElementById("sidebar-menu").classList.remove("active");
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+            const menu = document.getElementById("sidebar-menu");
+            const toggle = document.querySelector(".menu-toggle");
+
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
         // Preloader Animation
         document.addEventListener("DOMContentLoaded", function () {
             const preloader = document.getElementById("preloader");
