@@ -7,13 +7,20 @@ body {
     color: #000; /* Match text color */
 }
 
-/* Logo "S." (Top Left) */
+/* Clickable Logo "S." (Now a Home Button) */
 .logo {
     position: absolute;
     top: 30px;
     left: 40px;
-    font-size: 40px;
+    font-size: 42px; /* Increased size */
     font-weight: bold;
+    text-decoration: none;
+    color: #000; /* Keep the logo color */
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.6; /* Slight fade effect on hover */
 }
 
 /* Main Layout */
