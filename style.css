@@ -52,17 +52,8 @@ body {
     cursor: pointer;
     z-index: 1000;
 }
-/* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-    color: #fff;
-    scroll-behavior: smooth;
-    text-align: center;
-    overflow: hidden;
-}
+
+
 
 /* Large Logo (S.) */
 .logo-large {
@@ -110,7 +101,7 @@ body {
     justify-content: center;
     flex-direction: column;
     transition: right 0.4s ease-in-out;
-    z-index: 999;
+    z-index: 2000;
 }
 
 #sidebar-menu.active {
