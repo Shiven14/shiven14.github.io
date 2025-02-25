@@ -1,0 +1,80 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* Match About Page */
+    color: #000; /* Match text color */
+}
+
+/* Clickable Logo "S." */
+.logo {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    font-size: 42px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    transition: opacity 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.logo:hover {
+    opacity: 0.6;
+}
+
+/* Education Page Layout (Same as About Page) */
+.education-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    max-width: 80%;
+    margin: auto;
+}
+
+/* Education Text Section */
+.education-text {
+    max-width: 40%;
+    text-align: left;
+}
+
+.education-text h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.education-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #333;
+}
+
+/* Right Side Image (Smaller Than About Page) */
+.education-image img {
+    width: 400px; /* Slightly smaller than the About Page image */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 1024px) {
+    .education-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .education-text {
+        max-width: 80%;
+    }
+
+    .education-image img {
+        width: 300px;
+        margin-top: 20px;
+    }
+}
