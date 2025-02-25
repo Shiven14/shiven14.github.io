@@ -3,54 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education - Shiven Patel</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Education | Shiven Patel</title>
+    <link rel="stylesheet" href="education.css"> 
 </head>
 <body>
-    <div class="logo-large">S.</div>
-    
-    <!-- Sidebar Navigation -->
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
+    <!-- Sidebar Logo -->
+    <a href="index.html" class="logo">S.</a>
+
+    <div class="education-container">
+        <div class="education-text">
+            <h1><strong>Education</strong></h1>
+            <p>
+                <strong>Temple University</strong>  
+                <br>
+                **Bachelor of Science in Computer Science (Minor in Mathematics)**  
+                <br>
+                CGPA: 3.38 / 4.00  
+                <br>
+                Expected Graduation: May 2026
+            </p>
+            <p>
+                <strong>Relevant Coursework:</strong>  
+                <br>
+                - Operating Systems and Systems Programming  
+                <br>
+                - Data Structures and Algorithms  
+                <br>
+                - Computer Systems and Low-Level Programming  
+                <br>
+                - Computational Probability and Statistics  
+            </p>
+        </div>
+        <div class="education-image">
+            <img src="temple_university.jpg" alt="Temple University">
+        </div>
     </div>
-    <nav id="sidebar-menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="experience.html">Professional Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Education Section -->
-    <section id="education">
-        <h1>Education</h1>
-        <p><strong>Temple University - College of Science and Technology</strong></p>
-        <p>Bachelor of Science in Computer Science with Minor in Mathematics</p>
-        <p>CGPA: 3.38 / 4.00 | Expected Graduation: May 2026</p>
-    </section>
-
-    <!-- Cursor Shadow Effect -->
-    <div class="cursor-shadow"></div>
-    
-    <script>
-        function toggleMenu() {
-            document.getElementById("sidebar-menu").classList.toggle("active");
-        }
-
-        // Cursor Shadow Effect
-        document.addEventListener("DOMContentLoaded", function() {
-            const cursorShadow = document.createElement('div');
-            cursorShadow.classList.add('cursor-shadow');
-            document.body.appendChild(cursorShadow);
-
-            document.addEventListener("mousemove", (e) => {
-                cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                cursorShadow.style.transition = 'transform 0.1s ease-out';
-            });
-        });
-    </script>
 </body>
 </html>
+
