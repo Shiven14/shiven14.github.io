@@ -41,26 +41,184 @@ body {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
+/* Large Logo (S.) */
+.logo-large {
+    font-size: 32px;
+    font-weight: bold;
+    position: fixed;
+    top: 20px;
+    left: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+}
 
-/* Background Cube Animation */
+/* Sidebar Menu Toggle */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1000;
+    padding: 10px;
+}
+
+/* Fullscreen Overlay Menu */
+#sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: right 0.4s ease-in-out;
+}
+
+#sidebar-menu.active {
+    right: 0;
+}
+
+#sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar-menu ul li {
+    padding: 20px;
+    text-align: center;
+}
+
+#sidebar-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s;
+}
+
+#sidebar-menu ul li a:hover {
+    color: #FFA500;
+}
+
+/* Hero Section */
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Main Heading */
+.hero-content h1 {
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: 0px;
+}
+
+.hero-content h1 strong {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+}
+
+/* Subtext (Description) */
+.hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .hero-content p {
+        font-size: 16px;
+    }
+}
+
+/* Buttons */
+.btn-primary {
+    background: #FFA500;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #e69500;
+    transform: scale(1.05);
+}
+
+/* Scroll Down Indicator */
+.scroll-down {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.9;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.scroll-circle {
+    width: 50px;
+    height: 50px;
+    background: #FFA500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 3D Wireframe Geometric Shape */
 .cube-container {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateX(30deg) rotateY(30deg);
+    right: 10%;
+    transform: translateY(-50%) rotateX(30deg) rotateY(30deg);
     width: 250px;
     height: 250px;
     perspective: 800px;
-    opacity: 0.3;
-    animation: cubeSpin 10s infinte linear;
+    opacity: 0.5;
+    animation: cubeSpin 10s infinite linear;
 }
 
 .cube {
-    position: absolute;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    
 }
 
 .face {
@@ -82,80 +240,9 @@ body {
     from { transform: rotateX(0deg) rotateY(0deg); }
     to { transform: rotateX(360deg) rotateY(360deg); }
 }
-/* Large Logo */
-.logo-large {
-    font-size: 4rem;
-    font-weight: bold;
-    position: fixed;
-    top: 20px;
-    left: 40px;
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Sidebar Navigation */
-.menu-toggle {
-    position: fixed;
-    top: 20px;
-    right: 40px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fff;
-}
-
-/* Hero Section */
-#home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-.hero-content p {
-    font-size: 1.4rem;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-weight: 300;
-}
-
-/* Button Styles */
-.btn-primary {
-    background: #ff9800;
-    padding: 14px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-/* Scroll Down Button */
-.scroll-down {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-.scroll-circle {
-    width: 50px;
-    height: 50px;
-    background: #ff9800;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
