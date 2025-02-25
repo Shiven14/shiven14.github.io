@@ -115,8 +115,36 @@
                 }, 1500);
             }, delay);
         });
+        // Polygon Animation (Three.js)
+        document.addEventListener("DOMContentLoaded", function () {
+            const polygonContainer = document.querySelector(".polygon-container");
+
+            if (polygonContainer) {
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+                renderer.setSize(300, 300);
+                polygonContainer.appendChild(renderer.domElement);
+
+                const geometry = new THREE.IcosahedronGeometry(3, 1);
+                const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
+                const polygon = new THREE.Mesh(geometry, material);
+
+                scene.add(polygon);
+                camera.position.z = 8;
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    polygon.rotation.x += 0.005;
+                    polygon.rotation.y += 0.005;
+                    renderer.render(scene, camera);
+                }
+
+                animate();
+            }
+        });
     </script>
 </body>
 </html>
-
-
+    
