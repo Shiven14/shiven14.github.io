@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         renderer.setSize(300, 300);
         polygonContainer.appendChild(renderer.domElement);
 
-        const geometry = new THREE.IcosahedronGeometry(3, 1);
+        const geometry = new THREE.IcosahedronGeometry(5, 1);
         const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
         const polygon = new THREE.Mesh(geometry, material);
 
