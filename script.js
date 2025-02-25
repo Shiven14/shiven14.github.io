@@ -40,29 +40,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay);
 });
 
+// 3D Wireframe Polygon Animation (Using Three.js)
 document.addEventListener("DOMContentLoaded", function () {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const polygonContainer = document.querySelector(".polygon-container");
 
-    renderer.setSize(300, 300);
-    document.querySelector(".polygon-container").appendChild(renderer.domElement);
+    if (polygonContainer) {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
 
-    const geometry = new THREE.IcosahedronGeometry(3, 1);
-    const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
-    const polygon = new THREE.Mesh(geometry, material);
+        renderer.setSize(300, 300);
+        polygonContainer.appendChild(renderer.domElement);
 
-    scene.add(polygon);
-    camera.position.z = 8;
+        const geometry = new THREE.IcosahedronGeometry(3, 1);
+        const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
+        const polygon = new THREE.Mesh(geometry, material);
 
-    function animate() {
-        requestAnimationFrame(animate);
-        polygon.rotation.x += 0.01;
-        polygon.rotation.y += 0.01;
-        renderer.render(scene, camera);
+        scene.add(polygon);
+        camera.position.z = 8;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            polygon.rotation.x += 0.005;
+            polygon.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        }
+
+        animate();
     }
-
-    animate();
 });
 
 
