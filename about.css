@@ -17,6 +17,8 @@ body {
     text-decoration: none;
     color: #000; /* Keep the logo color */
     transition: opacity 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .logo:hover {
