@@ -42,29 +42,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
 
     renderer.setSize(300, 300);
     document.querySelector(".polygon-container").appendChild(renderer.domElement);
 
-    const geometry = new THREE.IcosahedronGeometry(100, 1);
-    const wireframe = new THREE.EdgesGeometry(geometry);
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff });
-    const shape = new THREE.LineSegments(wireframe, lineMaterial);
+    const geometry = new THREE.IcosahedronGeometry(3, 1);
+    const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
+    const polygon = new THREE.Mesh(geometry, material);
 
-    scene.add(shape);
-    camera.position.z = 250;
+    scene.add(polygon);
+    camera.position.z = 8;
 
     function animate() {
         requestAnimationFrame(animate);
-        shape.rotation.x += 0.005;
-        shape.rotation.y += 0.005;
+        polygon.rotation.x += 0.01;
+        polygon.rotation.y += 0.01;
         renderer.render(scene, camera);
     }
 
     animate();
 });
+
 
 // Smooth Scroll for Sidebar Links
 document.querySelectorAll("#sidebar-menu a").forEach(anchor => {
