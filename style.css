@@ -208,26 +208,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Secondary Button (View Works) */
-.btn-secondary {
-    background: transparent;
-    color: #fff;
-    padding: 14px 32px;
-    border: 2px solid white;
-    border-radius: 40px;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn-secondary:hover {
-    border-color: #FFA500;
-    color: #FFA500;
-}
 
 /* 3D Wireframe Polygon (Right Side) */
 .polygon-container {
