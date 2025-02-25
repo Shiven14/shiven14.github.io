@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const polygon = new THREE.Mesh(geometry, material);
 
         scene.add(polygon);
-        camera.position.z = 25;
+        camera.position.z = 10;
 
         function animate() {
             requestAnimationFrame(animate);
