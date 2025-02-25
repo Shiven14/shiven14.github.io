@@ -3,62 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Experience - Shiven Patel</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Experience | Shiven Patel</title>
+    <link rel="stylesheet" href="experience.css"> 
 </head>
 <body>
-    <div class="logo-large">S.</div>
-    
-    <!-- Sidebar Navigation -->
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
-    <nav id="sidebar-menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Professional Experience Section -->
-    <section id="experience">
-        <h1>Professional Experience</h1>
-        <div class="experience-container">
-            <div class="experience">
-                <h3>Web Development Intern - Mainline Surgical Center</h3>
-                <p><strong>May 2024 - Sep 2024</strong></p>
-                <ul>
-                    <li>Designed and implemented responsive websites using HTML5, CSS3, and JavaScript.</li>
-                    <li>Automated email workflows using Java, reducing manual processing time by 50%.</li>
-                    <li>Contributed to an EHR system for a surgical clinic using Java and MySQL.</li>
-                </ul>
-            </div>
+    <!-- Sidebar Logo -->
+    <a href="index.html" class="logo">S.</a>
+
+    <div class="experience-container">
+        <div class="experience-text">
+            <h1><strong>Professional Experience</strong></h1>
+            <p>
+                <strong>Mainline Surgical Center</strong> – Web Development Intern  
+                <br> **May 2024 – Sep 2024**  
+                <br> ● Designed and implemented responsive websites using **HTML5, CSS3, and JavaScript**, increasing user engagement by 25%.  
+                <br> ● Automated email workflows using **Java**, reducing manual processing time by 50%.  
+                <br> ● Contributed to an **EHR system** for a surgical clinic using **Java and MySQL**, improving data retrieval efficiency by 40%.  
+                <br> ● Developed intuitive user interfaces with **JavaFX**, enhancing usability by 20%.  
+                <br> ● Utilized **Agile methodologies** to improve team productivity by 15%.  
+            </p>
         </div>
-    </section>
-
-    <!-- Cursor Shadow Effect -->
-    <div class="cursor-shadow"></div>
-    
-    <script>
-        function toggleMenu() {
-            document.getElementById("sidebar-menu").classList.toggle("active");
-        }
-
-        // Cursor Shadow Effect
-        document.addEventListener("DOMContentLoaded", function() {
-            const cursorShadow = document.createElement('div');
-            cursorShadow.classList.add('cursor-shadow');
-            document.body.appendChild(cursorShadow);
-
-            document.addEventListener("mousemove", (e) => {
-                cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                cursorShadow.style.transition = 'transform 0.1s ease-out';
-            });
-        });
-    </script>
+        <div class="experience-image">
+            <img src="mainline-surgical-logo.png" alt="Work Experience">
+        </div>
+    </div>
 </body>
 </html>
+
