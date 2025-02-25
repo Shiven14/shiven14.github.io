@@ -52,17 +52,49 @@ body {
     cursor: pointer;
     z-index: 1000;
 }
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Large Logo (S.) */
+.logo-large {
+    font-size: 32px;
+    font-weight: bold;
+    position: fixed;
+    top: 20px;
+    left: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+}
 
 /* Sidebar Menu Toggle */
 .menu-toggle {
     position: fixed;
     top: 20px;
     right: 40px;
-    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     color: #fff;
+    font-size: 30px;
     z-index: 1000;
-    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
 }
 
 /* Fullscreen Overlay Menu */
@@ -78,6 +110,7 @@ body {
     justify-content: center;
     flex-direction: column;
     transition: right 0.4s ease-in-out;
+    z-index: 999;
 }
 
 #sidebar-menu.active {
@@ -105,6 +138,17 @@ body {
 
 #sidebar-menu ul li a:hover {
     color: #FFA500;
+}
+
+/* Close Button */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
 }
 
 /* Hero Section */
@@ -173,76 +217,43 @@ body {
     transform: scale(1.05);
 }
 
-/* Scroll Down Indicator */
-.scroll-down {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.9;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.scroll-circle {
-    width: 50px;
-    height: 50px;
-    background: #FFA500;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+/* Secondary Button (View Works) */
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 14px 32px;
+    border: 2px solid white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
     transition: all 0.3s ease;
-    animation: bounce 2s infinite;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.btn-secondary:hover {
+    border-color: #FFA500;
+    color: #FFA500;
 }
 
-/* 3D Wireframe Geometric Shape */
-.cube-container {
-    position: absolute;
+/* 3D Wireframe Polygon (Right Side) */
+.polygon-container {
+    position: fixed;
     top: 50%;
     right: 10%;
-    transform: translateY(-50%) rotateX(30deg) rotateY(30deg);
-    width: 250px;
-    height: 250px;
-    perspective: 800px;
-    opacity: 0.5;
-    animation: cubeSpin 10s infinite linear;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
 }
 
-.cube {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
+canvas {
+    display: block;
 }
 
-.face {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    border: 2px solid white;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.front  { transform: translateZ(125px); }
-.back   { transform: rotateY(180deg) translateZ(125px); }
-.left   { transform: rotateY(-90deg) translateZ(125px); }
-.right  { transform: rotateY(90deg) translateZ(125px); }
-.top    { transform: rotateX(90deg) translateZ(125px); }
-.bottom { transform: rotateX(-90deg) translateZ(125px); }
-
-@keyframes cubeSpin {
-    from { transform: rotateX(0deg) rotateY(0deg); }
-    to { transform: rotateX(360deg) rotateY(360deg); }
-}
-
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
