@@ -46,19 +46,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (polygonContainer) {
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        
+        // Get the actual size of the polygon container
+        const containerWidth = polygonContainer.clientWidth;
+        const containerHeight = polygonContainer.clientHeight;
 
-        renderer.setSize(300, 300);
+        // Set up camera with correct aspect ratio
+        const aspectRatio = containerWidth / containerHeight;
+        const camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
+        camera.position.z = 10;
+
+        // Renderer with dynamic size
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(containerWidth, containerHeight);
         polygonContainer.appendChild(renderer.domElement);
 
-        const geometry = new THREE.IcosahedronGeometry(20, 1);
+        // Create polygon geometry
+        const geometry = new THREE.IcosahedronGeometry(3, 1);
         const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
         const polygon = new THREE.Mesh(geometry, material);
 
         scene.add(polygon);
-        camera.position.z = 10;
 
+        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
             polygon.rotation.x += 0.005;
@@ -67,9 +77,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         animate();
+
+        // Handle window resizing dynamically
+        window.addEventListener("resize", () => {
+            const newWidth = polygonContainer.clientWidth;
+            const newHeight = polygonContainer.clientHeight;
+
+            renderer.setSize(newWidth, newHeight);
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+        });
     }
 });
-
 
 // Smooth Scroll for Sidebar Links
 document.querySelectorAll("#sidebar-menu a").forEach(anchor => {
