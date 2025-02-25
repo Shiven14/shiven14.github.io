@@ -77,6 +77,13 @@ body {
     transform: scale(1.1);
 }
 
+/* Ensure the icon inside the menu toggle is visible */
+.menu-toggle i {
+    color: white;
+    font-size: 30px;
+}
+
+
 /* Fullscreen Overlay Menu */
 #sidebar-menu {
     position: fixed;
@@ -202,12 +209,13 @@ body {
 .polygon-container {
     position: fixed;
     top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    width: 500px;
-    height: 500px;
-    z-index: 2500;
-    opacity: 0.4;
+    right: 50%;
+    transform: translateY(-50%, -50%);
+    width: 1200px;
+    height: 1200px;
+    z-index: -1;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 canvas {
