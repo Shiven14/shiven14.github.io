@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     const scrollTrigger = document.getElementById("scroll-trigger");
-    const educationContainer = document.getElementById("experience-container");
+    const experienceContainer = document.getElementById("experience-container");
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Load education.html dynamically
+                // Load experience.html dynamically
                 fetch("experience.html")
                     .then(response => response.text())
                     .then(data => {
-                        educationContainer.innerHTML = data;
+                        experienceContainer.innerHTML = data;
                     })
-                    .catch(error => console.error("Error loading education section:", error));
+                    .catch(error => console.error("Error loading experience section:", error));
 
                 // Stop observing after loading once
                 observer.unobserve(scrollTrigger);
