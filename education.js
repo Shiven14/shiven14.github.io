@@ -1,23 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const scrollTrigger = document.getElementById("scroll-trigger");
+    const experienceTrigger = document.getElementById("experience-trigger");
     const experienceContainer = document.getElementById("experience-container");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Load experience.html dynamically
-                fetch("experience.html")
-                    .then(response => response.text())
-                    .then(data => {
-                        experienceContainer.innerHTML = data;
-                    })
-                    .catch(error => console.error("Error loading experience section:", error));
+    if (experienceTrigger && experienceContainer) {
+        const observerExperience = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    fetch("experience.html")
+                        .then(response => response.text())
+                        .then(data => {
+                            experienceContainer.innerHTML = data;
+                        })
+                        .catch(error => console.error("Error loading experience section:", error));
 
-                // Stop observing after loading once
-                observer.unobserve(scrollTrigger);
-            }
+                    observerExperience.unobserve(experienceTrigger);
+                }
+            });
         });
-    });
 
-    observer.observe(scrollTrigger);
+        observerExperience.observe(experienceTrigger);
+    } else {
+        console.error("Error: #experience-trigger or #experience-container not found.");
+    }
 });
