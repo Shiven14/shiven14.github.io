@@ -220,7 +220,7 @@ body {
 
 /* Skills Heading */
 .skills-container h1 {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 40px;
@@ -228,7 +228,7 @@ body {
 
 /* Skills List */
 .skills-list {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 3;
     list-style-type: disc;
     padding-left: 50px;
