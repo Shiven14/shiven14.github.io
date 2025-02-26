@@ -229,9 +229,12 @@ body {
 /* Skills List */
 .skills-list {
     font-size: 24px;
-    line-height: 2;
+    line-height: 3;
     list-style-type: disc;
     padding-left: 50px;
+}
+.skills-lists li { 
+    margin-bottom:20px;
 }
 
 /* Bold category headings */
