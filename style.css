@@ -206,17 +206,21 @@ body {
 
 
 /* 3D Wireframe Polygon (Right Side) */
+/* Centered Fullscreen Polygon */
 .polygon-container {
     position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translateY(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.15; /* Adjust visibility */
     pointer-events: none;
 }
+
 
 canvas {
     display: block;
