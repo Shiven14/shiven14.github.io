@@ -1,23 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const scrollTrigger = document.getElementById("scroll-trigger");
+    console.log("education.js is running!");
+
+    const experienceTrigger = document.getElementById("experience-trigger");
     const experienceContainer = document.getElementById("experience-container");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // 
-                fetch("experience.html")
-                    .then(response => response.text())
-                    .then(data => {
-                        experienceContainer.innerHTML = data;
-                    })
-                    .catch(error => console.error("Error loading experience section:", error));
+    if (experienceTrigger && experienceContainer) {
+        console.log("Experience trigger found!", experienceTrigger);
 
-                // Stop observing after loading once
-                observer.unobserve(scrollTrigger);
-            }
+        const observerExperience = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log("Scroll Trigger Detected! Loading experience.html...");
+
+                    fetch("experience.html")
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error("Failed to load experience.html, Status: " + response.status);
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            console.log("Experience HTML loaded successfully.");
+                            experienceContainer.innerHTML = data;
+                        })
+                        .catch(error => console.error("Error loading experience section:", error));
+
+                    observerExperience.unobserve(experienceTrigger);
+                }
+            });
         });
-    });
 
-    observer.observe(scrollTrigger);
+        observerExperience.observe(experienceTrigger);
+    } else {
+        console.error("Error: #experience-trigger or #experience-container not found in education.html");
+    }
 });
