@@ -3,57 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Shiven Patel</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Contact | Shiven Patel</title>
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
-    <div class="logo-large">S.</div>
-    
-    <!-- Sidebar Navigation -->
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
-    <nav id="sidebar-menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="experience.html">Professional Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="skills.html">Skills</a></li>
-        </ul>
-    </nav>
-    
+
+    <!-- Sidebar Logo -->
+    <a href="index.html" class="logo">S.</a>
+
     <!-- Contact Section -->
-    <section id="contact">
+    <div class="contact-container">
         <h1>Contact Me</h1>
-        <form action="https://formspree.io/f/myzgdlll" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <p>Interested in working together? Have a question? Reach out below!</p>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Location: Philadelphia, PA</p>
+            <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Shiven14" target="_blank">Shiven14</a></p>
+            <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn Profile</a></p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-    </section>
+    </div>
 
-    <!-- Cursor Shadow Effect -->
-    <div class="cursor-shadow"></div>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById("sidebar-menu").classList.toggle("active");
-        }
-
-        // Cursor Shadow Effect
-        document.addEventListener("DOMContentLoaded", function() {
-            const cursorShadow = document.createElement('div');
-            cursorShadow.classList.add('cursor-shadow');
-            document.body.appendChild(cursorShadow);
-
-            document.addEventListener("mousemove", (e) => {
-                cursorShadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                cursorShadow.style.transition = 'transform 0.1s ease-out';
-            });
-        });
-    </script>
+    <script src="contact.js"></script>
 </body>
 </html>
+
