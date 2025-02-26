@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff; /* Match About Page */
+    background-color: #fff; /* Match About, Education & Experience Pages */
     color: #000; /* Match text color */
 }
 
@@ -26,7 +26,7 @@ body {
     opacity: 0.6;
 }
 
-/* Education Page Layout (Same as About Page) */
+/* Education Page Layout */
 .education-container {
     display: flex;
     align-items: center;
@@ -55,26 +55,66 @@ body {
     color: #333;
 }
 
-/* Right Side Image (Smaller Than About Page) */
+/* Right Side Image (Education Section) */
 .education-image img {
-    width: 400px; /* Slightly smaller than the About Page image */
+    width: 400px; 
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Experience Page Layout */
+.experience-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    max-width: 80%;
+    margin: auto;
+}
+
+/* Experience Text Section */
+.experience-text {
+    max-width: 40%;
+    text-align: left;
+}
+
+.experience-text h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.experience-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #333;
+}
+
+/* Right Side Image (Experience Section) */
+.experience-image img {
+    width: 400px;
     height: auto;
     border-radius: 10px;
 }
 
 /* Responsive Design for Mobile */
 @media (max-width: 1024px) {
-    .education-container {
+    .education-container, 
+    .experience-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .education-text {
+    .education-text, 
+    .experience-text {
         max-width: 80%;
     }
 
-    .education-image img {
+    .education-image img, 
+    .experience-image img {
         width: 300px;
         margin-top: 20px;
     }
 }
+
