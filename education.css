@@ -26,6 +26,59 @@ body {
     opacity: 0.6;
 }
 
+/* Main Layout */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    max-width: 80%;
+    margin: auto;
+}
+
+/* Biography Text Section */
+.about-text {
+    max-width: 40%;
+    text-align: left;
+}
+
+.about-text h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #333;
+}
+
+/* Right Side Large Image */
+.about-image img {
+    width: 500px; /* Match reference image size */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 1024px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        max-width: 80%;
+    }
+
+    .about-image img {
+        width: 350px;
+        margin-top: 20px;
+    }
+}
+
 /* Education Page Layout */
 .education-container {
     display: flex;
