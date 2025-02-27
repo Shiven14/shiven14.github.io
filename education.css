@@ -303,3 +303,23 @@ body {
 .contact-form button:hover {
     background-color: #e68900;
 }
+.resume-download {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resume-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #ff9800;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.resume-button:hover {
+    background-color: #e68900;
+}
