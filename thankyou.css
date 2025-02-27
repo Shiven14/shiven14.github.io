@@ -1,0 +1,30 @@
+/* Thank You Page */
+.thank-you-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.thank-you-container h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.thank-you-container p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.thank-you-container .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.thank-you-container .btn:hover {
+    background-color: #e68900;
+}
