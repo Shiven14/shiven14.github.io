@@ -51,6 +51,11 @@ body {
     opacity: 1;
     visibility: visible;
 }
+/* Hide menu toggle when menu is open */
+#fullscreen-menu.active ~ .menu-toggle {
+    display: none;
+}
+
 
 /* Menu Items */
 #fullscreen-menu ul {
