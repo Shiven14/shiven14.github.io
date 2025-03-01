@@ -1,44 +1,53 @@
-// Preloader Animation
 document.addEventListener("DOMContentLoaded", function () {
+    // Preloader Animation
     const preloader = document.getElementById("preloader");
     const preloaderTexts = document.querySelectorAll(".preloader-text");
     const fadeOutText = document.querySelector(".fade-out");
     let delay = 500;
 
-    preloaderTexts.forEach((text, index) => {
-        setTimeout(() => {
-            text.style.opacity = "1";
+    if (preloader) {
+        preloaderTexts.forEach((text, index) => {
             setTimeout(() => {
-                text.style.opacity = "0";
-            }, 1000); 
-        }, delay);
-        delay += 1500;
-    });
-
-    setTimeout(() => {
-        fadeOutText.style.opacity = "1";
-        setTimeout(() => {
-            fadeOutText.style.opacity = "0";
-            setTimeout(() => {
-                preloader.style.opacity = "0";
+                text.style.opacity = "1";
                 setTimeout(() => {
-                    preloader.style.display = "none";
-                }, 500);
-            }, 1500);
-        }, 1500);
-    }, delay);
-});
+                    text.style.opacity = "0";
+                }, 1000);
+            }, delay);
+            delay += 1500;
+        });
 
-// Sidebar Menu Toggle
-document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+            fadeOutText.style.opacity = "1";
+            setTimeout(() => {
+                fadeOutText.style.opacity = "0";
+                setTimeout(() => {
+                    preloader.style.opacity = "0";
+                    setTimeout(() => {
+                        preloader.style.display = "none";
+                    }, 500);
+                }, 1500);
+            }, 1500);
+        }, delay);
+    }
+
+    // Sidebar Menu Toggle
     const menuToggle = document.getElementById("menu-toggle");
     const sidebarMenu = document.getElementById("sidebar-menu");
     const closeMenu = document.getElementById("close-menu");
 
-    if (menuToggle) {
+    if (menuToggle && sidebarMenu) {
         menuToggle.addEventListener("click", () => {
+            console.log("Menu clicked!"); // Debugging
             sidebarMenu.classList.add("active");
         });
+
+        document.querySelectorAll("#sidebar-menu ul li a").forEach(item => {
+            item.addEventListener("click", () => {
+                sidebarMenu.classList.remove("active");
+            });
+        });
+    } else {
+        console.error("Menu elements not found!");
     }
 
     if (closeMenu) {
@@ -47,16 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    document.querySelectorAll("#sidebar-menu ul li a").forEach(item => {
-        item.addEventListener("click", () => {
-            sidebarMenu.classList.remove("active");
-        });
-    });
-});
-
-
-// Polygon Background Animation (Three.js)
-document.addEventListener("DOMContentLoaded", function () {
+    // Polygon Background Animation (Three.js)
     const polygonContainer = document.querySelector(".polygon-container");
 
     if (polygonContainer) {
