@@ -4,26 +4,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeMenu = document.getElementById("close-menu");
 
     menuToggle.addEventListener("click", () => {
-        fullscreenMenu.classList.toggle("active");
+        fullscreenMenu.classList.add("active");
+        menuToggle.style.display = "none"; // Hide menu button
     });
 
     closeMenu.addEventListener("click", () => {
         fullscreenMenu.classList.remove("active");
+        menuToggle.style.display = "flex"; // Show menu button again
     });
 
-    // Smooth scroll to section inside education.html
+    // Close menu & smooth scroll to section
     document.querySelectorAll("#fullscreen-menu ul li a").forEach(item => {
-        item.addEventListener("click", (event) => {
+        item.addEventListener("click", function (event) {
             event.preventDefault();
-            menuContainer.classList.remove("active");
+            fullscreenMenu.classList.remove("active");
+            menuToggle.style.display = "flex"; // Show menu button again
 
-            const sectionID = item.getAttribute("href").split("#")[1];
+            const sectionID = this.getAttribute("href").split("#")[1];
             if (sectionID) {
                 const section = document.getElementById(sectionID);
                 if (section) {
                     section.scrollIntoView({ behavior: "smooth" });
                 } else {
-                    window.location.href = item.getAttribute("href");
+                    window.location.href = this.getAttribute("href");
                 }
             }
         });
