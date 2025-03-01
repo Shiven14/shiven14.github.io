@@ -30,23 +30,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Sidebar Menu Toggle
-const menuToggle = document.getElementById("menu-toggle");
-const sidebarMenu = document.getElementById("sidebar-menu");
-const closeMenu = document.getElementById("close-menu");
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const sidebarMenu = document.getElementById("sidebar-menu");
+    const closeMenu = document.getElementById("close-menu");
 
-menuToggle.addEventListener("click", () => {
-    sidebarMenu.classList.add("active");
-});
+    if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.add("active");
+        });
+    }
 
-closeMenu.addEventListener("click", () => {
-    sidebarMenu.classList.remove("active");
-});
+    if (closeMenu) {
+        closeMenu.addEventListener("click", () => {
+            sidebarMenu.classList.remove("active");
+        });
+    }
 
-document.querySelectorAll("#sidebar-menu ul li a").forEach(item => {
-    item.addEventListener("click", () => {
-        sidebarMenu.classList.remove("active");
+    document.querySelectorAll("#sidebar-menu ul li a").forEach(item => {
+        item.addEventListener("click", () => {
+            sidebarMenu.classList.remove("active");
+        });
     });
 });
+
 
 // Polygon Background Animation (Three.js)
 document.addEventListener("DOMContentLoaded", function () {
