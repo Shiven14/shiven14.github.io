@@ -1,4 +1,4 @@
-/* General Styling */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -28,46 +28,49 @@ body {
     font-size: 30px;
 }
 
-/* Sidebar Menu */
-#sidebar-menu {
+/* Fullscreen Menu */
+#fullscreen-menu {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 250px;
+    left: 0;
+    width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: right 0.4s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s;
     z-index: 9999;
 }
 
-/* Sidebar Active (Show) */
-#sidebar-menu.active {
-    right: 0;
+/* When menu is active */
+#fullscreen-menu.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Menu Items */
-#sidebar-menu ul {
+#fullscreen-menu ul {
     list-style: none;
     padding: 0;
     text-align: center;
 }
 
-#sidebar-menu ul li {
+#fullscreen-menu ul li {
     margin: 20px 0;
 }
 
-#sidebar-menu ul li a {
+#fullscreen-menu ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 30px;
     transition: color 0.3s;
 }
 
-#sidebar-menu ul li a:hover {
+#fullscreen-menu ul li a:hover {
     color: #FFA500;
 }
 
@@ -75,8 +78,14 @@ body {
 .close-menu {
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 40px;
     font-size: 30px;
     color: #fff;
     cursor: pointer;
 }
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
