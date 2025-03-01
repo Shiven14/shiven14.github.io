@@ -67,8 +67,8 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #fff;
-    font-size: 30px;
+    background: rgba(255, 255, 255, 0.2); /* Add background */
+    border-radius: 5px;
     z-index: 6000;
     transition: transform 0.2s ease-in-out;
 }
@@ -101,7 +101,7 @@ body {
 }
 
 #sidebar-menu.active {
-    right: 0;
+   transform: translateX(0);
 }
 
 #sidebar-menu ul {
