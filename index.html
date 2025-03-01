@@ -59,24 +59,28 @@
     <div class="polygon-container"></div>
 
     <script>
-        // Sidebar Menu Toggle
-        function toggleMenu() {
-            document.getElementById("sidebar-menu").classList.add("active");
-        }
+       // Select menu elements
+const menuToggle = document.getElementById("menu-toggle");
+const sidebarMenu = document.getElementById("sidebar-menu");
+const closeMenu = document.getElementById("close-menu");
 
-        function closeMenu() {
-            document.getElementById("sidebar-menu").classList.remove("active");
-        }
+// Open sidebar when clicking the hamburger
+menuToggle.addEventListener("click", () => {
+    sidebarMenu.classList.add("active");
+});
 
-        // Close menu when clicking outside
-        document.addEventListener("click", function (event) {
-            const menu = document.getElementById("sidebar-menu");
-            const toggle = document.querySelector(".menu-toggle");
+// Close sidebar when clicking the close button
+closeMenu.addEventListener("click", () => {
+    sidebarMenu.classList.remove("active");
+});
 
-            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-                menu.classList.remove("active");
-            }
-        });
+// Close menu when clicking on a menu item (smooth scrolling)
+document.querySelectorAll("#sidebar-menu ul li a").forEach(item => {
+    item.addEventListener("click", () => {
+        sidebarMenu.classList.remove("active");
+    });
+});
+
         // Preloader Animation
         document.addEventListener("DOMContentLoaded", function () {
             const preloader = document.getElementById("preloader");
