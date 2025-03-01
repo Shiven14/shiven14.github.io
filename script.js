@@ -5,31 +5,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const fadeOutText = document.querySelector(".fade-out");
     let delay = 500;
 
-    preloaderTexts.forEach((text, index) => {
-        setTimeout(() => {
-            text.style.opacity = "1";
+    if (preloader) {
+        preloaderTexts.forEach((text, index) => {
             setTimeout(() => {
-                text.style.opacity = "0";
-            }, 1000); 
-        }, delay);
-        delay += 1500;
-    });
-
-    setTimeout(() => {
-        fadeOutText.style.opacity = "1";
-        setTimeout(() => {
-            fadeOutText.style.opacity = "0";
-            setTimeout(() => {
-                preloader.style.opacity = "0";
+                text.style.opacity = "1";
                 setTimeout(() => {
-                    preloader.style.display = "none";
-                }, 500);
-            }, 1500);
-        }, 1500);
-    }, delay);
-});
+                    text.style.opacity = "0";
+                }, 1000); 
+            }, delay);
+            delay += 1500;
+        });
 
-const polygonContainer = document.querySelector(".polygon-container");
+        setTimeout(() => {
+            fadeOutText.style.opacity = "1";
+            setTimeout(() => {
+                fadeOutText.style.opacity = "0";
+                setTimeout(() => {
+                    preloader.style.opacity = "0";
+                    setTimeout(() => {
+                        preloader.style.display = "none";
+                    }, 500);
+                }, 1500);
+            }, 1500);
+        }, delay);
+    }
+
+    // Three.js Polygon Background Animation
+    const polygonContainer = document.querySelector(".polygon-container");
 
     if (polygonContainer) {
         const scene = new THREE.Scene();
@@ -57,7 +59,7 @@ const polygonContainer = document.querySelector(".polygon-container");
         animate();
 
         window.addEventListener("resize", () => {
-renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(window.innerWidth, window.innerHeight);
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
         });
