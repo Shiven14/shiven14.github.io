@@ -101,6 +101,7 @@ body {
 }
 
 #sidebar-menu.active {
+    right:0
    transform: translateX(0);
 }
 
