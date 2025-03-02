@@ -121,10 +121,10 @@ body {
 }
 
 #fullscreen-menu ul li a {
+    font-family: 'Poppins', serif
     color: white;
     text-decoration: none;
     font-size: 30px;
-    font-weight: bold;
     text-transform: uppercase;
     transition: color 0.3s;
 }
