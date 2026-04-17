@@ -199,47 +199,205 @@
     overflow: hidden;
     background: var(--ink);
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 4rem;
-  }
-
-  .hero-stat-stack {
-    display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
     gap: 2rem;
-    position: relative;
-    z-index: 2;
   }
 
-  .hero-stat {
-    text-align: right;
-  }
-  .hero-stat-number {
-    font-family: var(--serif);
-    font-size: 3.5rem;
-    color: var(--cream);
-    line-height: 1;
-    display: block;
-  }
-  .hero-stat-label {
-    font-size: 0.75rem;
-    color: rgba(245,242,235,0.4);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,82,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,82,42,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
   }
 
   .hero-bg-text {
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: -2rem; right: -1rem;
     font-family: var(--serif);
-    font-size: 18vw;
-    color: rgba(255,255,255,0.03);
-    white-space: nowrap;
+    font-size: 16vw;
+    color: rgba(255,255,255,0.025);
     pointer-events: none;
     user-select: none;
     line-height: 1;
+  }
+
+  .hero-terminal {
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .terminal-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .terminal-dot.r { background: #FF5F57; }
+  .terminal-dot.y { background: #FEBC2E; }
+  .terminal-dot.g { background: #28C840; }
+
+  .terminal-title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: rgba(245,242,235,0.25);
+    letter-spacing: 0.08em;
+    margin-left: 6px;
+  }
+
+  .terminal-body {
+    padding: 1.2rem 1.4rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    line-height: 2;
+  }
+
+  .tline {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(4px);
+    animation: tappear 0.3s ease forwards;
+  }
+  .tline:nth-child(1)  { animation-delay: 0.3s; }
+  .tline:nth-child(2)  { animation-delay: 0.8s; }
+  .tline:nth-child(3)  { animation-delay: 1.4s; }
+  .tline:nth-child(4)  { animation-delay: 2.0s; }
+  .tline:nth-child(5)  { animation-delay: 2.7s; }
+  .tline:nth-child(6)  { animation-delay: 3.3s; }
+  .tline:nth-child(7)  { animation-delay: 3.9s; }
+  .tline:nth-child(8)  { animation-delay: 4.4s; }
+
+  @keyframes tappear {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .t-prompt { color: var(--accent); flex-shrink: 0; }
+  .t-cmd    { color: rgba(245,242,235,0.75); }
+  .t-flag   { color: #6EB4FF; }
+  .t-ok     { color: #28C840; }
+  .t-warn   { color: #FEBC2E; }
+  .t-dim    { color: rgba(245,242,235,0.25); }
+  .t-path   { color: #B48EFF; }
+
+  .t-cursor {
+    display: inline-block;
+    width: 7px; height: 13px;
+    background: var(--accent);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+    opacity: 0;
+    animation-delay: 4.9s;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .hero-orbit {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .orbit-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: rgba(245,242,235,0.5);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: badge-in 0.4s ease forwards;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .orbit-badge:hover {
+    border-color: var(--accent);
+    color: var(--cream);
+    background: rgba(200,82,42,0.1);
+  }
+  .orbit-badge:nth-child(1) { animation-delay: 5.2s; }
+  .orbit-badge:nth-child(2) { animation-delay: 5.4s; }
+  .orbit-badge:nth-child(3) { animation-delay: 5.6s; }
+  .orbit-badge:nth-child(4) { animation-delay: 5.8s; }
+  .orbit-badge:nth-child(5) { animation-delay: 6.0s; }
+  .orbit-badge:nth-child(6) { animation-delay: 6.2s; }
+
+  @keyframes badge-in {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-blue   { background: #6EB4FF; }
+  .dot-orange { background: var(--accent); }
+  .dot-green  { background: #28C840; }
+  .dot-purple { background: #B48EFF; }
+  .dot-amber  { background: #FEBC2E; }
+
+  .hero-stat-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hero-stat-cell {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    opacity: 0;
+    animation: tappear 0.4s ease forwards;
+  }
+  .hero-stat-cell:last-child { border-right: none; }
+  .hero-stat-cell:nth-child(1) { animation-delay: 6.5s; }
+  .hero-stat-cell:nth-child(2) { animation-delay: 6.7s; }
+  .hero-stat-cell:nth-child(3) { animation-delay: 6.9s; }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--cream);
+    line-height: 1;
+    display: block;
+  }
+  .stat-lbl {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: rgba(245,242,235,0.3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    display: block;
   }
 
   .hero-scroll {
@@ -773,7 +931,8 @@
     .nav-links { gap: 0.9rem 1.25rem; }
     #hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-right { min-height: 40vh; justify-content: flex-start; }
-    .hero-stat { text-align: left; }
+    .terminal-body { font-size: 0.7rem; }
+    .tline { flex-wrap: wrap; row-gap: 0; }
     section { padding: 5rem 2rem; }
     #about, #contact { grid-template-columns: 1fr; }
     .exp-entry { grid-template-columns: 1fr; gap: 1rem; }
@@ -803,6 +962,11 @@
     #hero { padding-top: 0; }
     .hero-left { padding: 4rem 1.25rem; }
     .hero-right { min-height: 320px; padding: 2rem 1.25rem; }
+    .terminal-title { font-size: 0.62rem; }
+    .terminal-body { padding: 1rem; font-size: 0.64rem; line-height: 1.8; }
+    .hero-stat-row { flex-direction: column; }
+    .hero-stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .hero-stat-cell:last-child { border-bottom: none; }
     .hero-name { font-size: 3.5rem; }
     .hero-eyebrow { letter-spacing: 0.12em; }
     .hero-bio { font-size: 1rem; }
@@ -825,6 +989,8 @@
     .section-title { font-size: 2rem; }
     .skill-tag, .course-pill, .project-tech span { overflow-wrap: anywhere; }
     .edu-card, .cert-card, .project-card { padding: 1.5rem 1rem; }
+    .hero-orbit { gap: 0.4rem; }
+    .orbit-badge { font-size: 0.62rem; padding: 0.3rem 0.65rem; }
     .exp-achievements li { gap: 0.75rem; }
     footer { padding: 1.25rem; }
   }
@@ -832,6 +998,17 @@
   @media (hover: none), (pointer: coarse) {
     body { cursor: auto; }
     .cursor, .cursor-ring { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tline,
+    .t-cursor,
+    .orbit-badge,
+    .hero-stat-cell {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 </style>
 </head>
@@ -869,18 +1046,78 @@
   </div>
   <div class="hero-right">
     <div class="hero-bg-text">SP</div>
-    <div class="hero-stat-stack">
-      <div class="hero-stat">
-        <span class="hero-stat-number">3.38</span>
-        <span class="hero-stat-label">GPA</span>
+
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot r"></div>
+        <div class="terminal-dot y"></div>
+        <div class="terminal-dot g"></div>
+        <span class="terminal-title">shiven@dev — ~/portfolio</span>
       </div>
-      <div class="hero-stat">
-        <span class="hero-stat-number">7+</span>
-        <span class="hero-stat-label">Projects</span>
+      <div class="terminal-body">
+        <div class="tline">
+          <span class="t-prompt">$</span>
+          <span class="t-cmd">docker build</span>
+          <span class="t-flag">-t</span>
+          <span class="t-path">shiven/app:latest</span>
+          <span class="t-dim">.</span>
+        </div>
+        <div class="tline">
+          <span class="t-dim">&nbsp;&nbsp;✓ Layer cached [12/12]</span>
+        </div>
+        <div class="tline">
+          <span class="t-prompt">$</span>
+          <span class="t-cmd">kubectl apply</span>
+          <span class="t-flag">-f</span>
+          <span class="t-path">k8s/deployment.yaml</span>
+        </div>
+        <div class="tline">
+          <span class="t-ok">&nbsp;&nbsp;✓ deployment.apps/shiven-app configured</span>
+        </div>
+        <div class="tline">
+          <span class="t-prompt">$</span>
+          <span class="t-cmd">aws s3 sync</span>
+          <span class="t-path">./dist</span>
+          <span class="t-flag">s3://prod-bucket</span>
+          <span class="t-flag">--delete</span>
+        </div>
+        <div class="tline">
+          <span class="t-ok">&nbsp;&nbsp;✓ 24 files uploaded  •  </span>
+          <span class="t-warn">2 skipped</span>
+        </div>
+        <div class="tline">
+          <span class="t-prompt">$</span>
+          <span class="t-cmd">terraform apply</span>
+          <span class="t-flag">--auto-approve</span>
+        </div>
+        <div class="tline">
+          <span class="t-ok">&nbsp;&nbsp;✓ Apply complete! 7 added, 0 destroyed.</span>
+          <span class="t-cursor"></span>
+        </div>
       </div>
-      <div class="hero-stat">
-        <span class="hero-stat-number">5+</span>
-        <span class="hero-stat-label">Languages</span>
+    </div>
+
+    <div class="hero-orbit">
+      <span class="orbit-badge"><span class="badge-dot dot-blue"></span>AWS</span>
+      <span class="orbit-badge"><span class="badge-dot dot-orange"></span>Docker</span>
+      <span class="orbit-badge"><span class="badge-dot dot-blue"></span>Kubernetes</span>
+      <span class="orbit-badge"><span class="badge-dot dot-purple"></span>Terraform</span>
+      <span class="orbit-badge"><span class="badge-dot dot-green"></span>CI/CD</span>
+      <span class="orbit-badge"><span class="badge-dot dot-amber"></span>WebSockets</span>
+    </div>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat-cell">
+        <span class="stat-num">3.38</span>
+        <span class="stat-lbl">GPA</span>
+      </div>
+      <div class="hero-stat-cell">
+        <span class="stat-num">7+</span>
+        <span class="stat-lbl">Projects</span>
+      </div>
+      <div class="hero-stat-cell">
+        <span class="stat-num">5+</span>
+        <span class="stat-lbl">Languages</span>
       </div>
     </div>
   </div>
