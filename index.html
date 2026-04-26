@@ -314,20 +314,7 @@
     align-items: baseline;
     gap: 0.5rem;
     opacity: 0;
-    transform: translateY(4px);
-    animation: tappear 0.3s ease forwards;
   }
-  .tline:nth-child(1)  { animation-delay: 0.3s; }
-  .tline:nth-child(2)  { animation-delay: 0.9s; }
-  .tline:nth-child(3)  { animation-delay: 1.5s; }
-  .tline:nth-child(4)  { animation-delay: 2.1s; }
-  .tline:nth-child(5)  { animation-delay: 2.8s; }
-  .tline:nth-child(6)  { animation-delay: 3.4s; }
-  .tline:nth-child(7)  { animation-delay: 4.0s; }
-  .tline:nth-child(8)  { animation-delay: 4.6s; }
-  .tline:nth-child(9)  { animation-delay: 5.1s; }
-  .tline:nth-child(10) { animation-delay: 5.6s; }
-  @keyframes tappear { to { opacity: 1; transform: translateY(0); } }
 
   .t-prompt { color: var(--accent); flex-shrink: 0; }
   .t-cmd    { color: rgba(245,242,235,0.75); }
@@ -363,7 +350,6 @@
     color: rgba(245,242,235,0.5);
     letter-spacing: 0.05em;
     opacity: 0;
-    animation: badge-in 0.4s ease forwards;
     transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
   .orbit-badge:hover {
@@ -371,14 +357,6 @@
     color: var(--cream);
     background: rgba(200,82,42,0.1);
   }
-  .orbit-badge:nth-child(1) { animation-delay: 6.5s; }
-  .orbit-badge:nth-child(2) { animation-delay: 6.7s; }
-  .orbit-badge:nth-child(3) { animation-delay: 6.9s; }
-  .orbit-badge:nth-child(4) { animation-delay: 7.1s; }
-  .orbit-badge:nth-child(5) { animation-delay: 7.3s; }
-  .orbit-badge:nth-child(6) { animation-delay: 7.5s; }
-  .orbit-badge:nth-child(7) { animation-delay: 7.7s; }
-  @keyframes badge-in { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
 
   .badge-dot {
     width: 6px; height: 6px;
@@ -402,12 +380,8 @@
     padding: 1rem 1.25rem;
     border-right: 1px solid rgba(255,255,255,0.08);
     opacity: 0;
-    animation: tappear 0.4s ease forwards;
   }
   .hero-stat-cell:last-child { border-right: none; }
-  .hero-stat-cell:nth-child(1) { animation-delay: 8.0s; }
-  .hero-stat-cell:nth-child(2) { animation-delay: 8.2s; }
-  .hero-stat-cell:nth-child(3) { animation-delay: 8.4s; }
   .stat-num {
     font-family: var(--serif);
     font-size: 2rem;
@@ -713,12 +687,8 @@
   }
   @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-  /* ── Animations ── */
-  .fade-up {
-    opacity: 0; transform: translateY(32px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  /* ── Animations (initial state set by GSAP) ── */
+  .fade-up { opacity: 0; }
 
   /* ── Progress bar on scroll ── */
   #progress-bar {
@@ -799,10 +769,11 @@
     .cursor, .cursor-ring { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .tline, .t-cursor, .orbit-badge, .hero-stat-cell { animation: none; opacity: 1; transform: none; }
     .ticker-track { animation: none; }
   }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -1259,23 +1230,44 @@
     <div class="status-dot"></div>
     <span>Open to opportunities</span>
   </div>
-  <span>CS @ Temple University · Philadelphia, PA</span>
+  <span>CS @ Temple University · Philadelphia, PA · Last updated: Apr 2026</span>
 </footer>
 
 <script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Scroll progress bar ── */
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop  = document.documentElement.scrollTop;
+    const scrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    progressBar.style.width = (scrollTop / scrollable * 100) + '%';
+  }, { passive: true });
+
+  /* ── Active nav link on scroll ── */
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observerNav = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('section[id]').forEach(s => observerNav.observe(s));
+
   /* ── Custom cursor ── */
   const cursor = document.getElementById('cursor');
   const ring   = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function animateCursor() {
+  (function animateCursor() {
     cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
     rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
     ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
     requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-
+  })();
   document.querySelectorAll('a, button, .project-card, .skill-tag, .cert-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
@@ -1287,37 +1279,126 @@
     });
   });
 
-  /* ── Scroll progress bar ── */
-  const progressBar = document.getElementById('progress-bar');
-  window.addEventListener('scroll', () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    progressBar.style.width = (scrollTop / scrollHeight * 100) + '%';
-  }, { passive: true });
+  /* ── gsap.matchMedia: respect prefers-reduced-motion ── */
+  const mm = gsap.matchMedia();
 
-  /* ── Active nav link on scroll ── */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const observerNav = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observerNav.observe(s));
+  mm.add(
+    {
+      motion:      '(prefers-reduced-motion: no-preference)',
+      reduceMotion:'(prefers-reduced-motion: reduce)'
+    },
+    (ctx) => {
+      const { reduceMotion } = ctx.conditions;
 
-  /* ── Fade-up on scroll ── */
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      /* ── Nav slide-in ── */
+      gsap.from('#main-nav', {
+        y: -60, autoAlpha: 0,
+        duration: reduceMotion ? 0 : 0.7,
+        ease: 'power2.out'
+      });
+
+      /* ── Hero left: eyebrow → name → bio → CTAs ── */
+      const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      heroTl
+        .from('.hero-eyebrow', { autoAlpha: 0, y: 20, duration: reduceMotion ? 0 : 0.6 })
+        .from('.hero-name',    { autoAlpha: 0, y: 40, duration: reduceMotion ? 0 : 0.8 }, '-=0.3')
+        .from('.hero-bio',     { autoAlpha: 0, y: 24, duration: reduceMotion ? 0 : 0.7 }, '-=0.4')
+        .from('.hero-ctas > *',{ autoAlpha: 0, y: 16, duration: reduceMotion ? 0 : 0.5, stagger: 0.12 }, '-=0.3')
+        .from('.hero-scroll',  { autoAlpha: 0, duration: reduceMotion ? 0 : 0.5 }, '-=0.2');
+
+      /* ── Hero right: terminal lines ── */
+      const terminalDelays = [0.3, 0.9, 1.5, 2.1, 2.8, 3.4, 4.0, 4.6, 5.1, 5.6];
+      const tlines = document.querySelectorAll('.tline');
+      gsap.set(tlines, { y: reduceMotion ? 0 : 4 });
+      tlines.forEach((line, i) => {
+        gsap.to(line, {
+          autoAlpha: 1, y: 0,
+          duration: reduceMotion ? 0 : 0.35,
+          ease: 'power2.out',
+          delay: reduceMotion ? 0 : (terminalDelays[i] ?? i * 0.55)
+        });
+      });
+
+      /* ── Orbit badges: stagger after terminal completes ── */
+      gsap.set('.orbit-badge', { scale: reduceMotion ? 1 : 0.85 });
+      gsap.to('.orbit-badge', {
+        autoAlpha: 1, scale: 1,
+        duration: reduceMotion ? 0 : 0.4,
+        ease: 'back.out(1.4)',
+        stagger: 0.12,
+        delay: reduceMotion ? 0 : 6.5
+      });
+
+      /* ── Stat cells ── */
+      gsap.to('.hero-stat-cell', {
+        autoAlpha: 1,
+        duration: reduceMotion ? 0 : 0.4,
+        ease: 'power2.out',
+        stagger: 0.15,
+        delay: reduceMotion ? 0 : 8.0
+      });
+
+      /* ── ScrollTrigger: batch fade-up for generic .fade-up elements ── */
+      ScrollTrigger.batch('.fade-up', {
+        start: 'top 88%',
+        once: true,
+        onEnter: (batch) => {
+          gsap.to(batch, {
+            autoAlpha: 1, y: 0,
+            duration: reduceMotion ? 0 : 0.7,
+            ease: 'power2.out',
+            stagger: { each: 0.1 }
+          });
+        }
+      });
+      /* set initial y for batch targets */
+      gsap.set('.fade-up', { y: reduceMotion ? 0 : 32 });
+
+      /* ── Skill tags: stagger per group ── */
+      document.querySelectorAll('.skill-grid').forEach(grid => {
+        ScrollTrigger.batch(grid.querySelectorAll('.skill-tag'), {
+          start: 'top 92%',
+          once: true,
+          onEnter: (batch) => {
+            gsap.from(batch, {
+              autoAlpha: 0, y: 12, scale: 0.92,
+              duration: reduceMotion ? 0 : 0.4,
+              ease: 'power2.out',
+              stagger: 0.05
+            });
+          }
+        });
+      });
+
+      /* ── Experience bullets ── */
+      ScrollTrigger.batch('.exp-achievements li', {
+        start: 'top 90%',
+        once: true,
+        onEnter: (batch) => {
+          gsap.from(batch, {
+            autoAlpha: 0, x: -20,
+            duration: reduceMotion ? 0 : 0.5,
+            ease: 'power2.out',
+            stagger: 0.08
+          });
+        }
+      });
+
+      /* ── Contact items: slide up ── */
+      ScrollTrigger.batch('.contact-item', {
+        start: 'top 90%',
+        once: true,
+        onEnter: (batch) => {
+          gsap.from(batch, {
+            autoAlpha: 0, y: 20,
+            duration: reduceMotion ? 0 : 0.5,
+            ease: 'power2.out',
+            stagger: 0.1
+          });
+        }
+      });
+    }
+  );
 </script>
 </body>
 </html>
